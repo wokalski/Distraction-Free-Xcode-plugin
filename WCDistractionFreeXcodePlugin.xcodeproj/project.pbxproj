@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C9E0C6161A4C76AA002ABB7B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E0C6151A4C76AA002ABB7B /* AppKit.framework */; };
+		C9E0C6181A4C76AA002ABB7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E0C6171A4C76AA002ABB7B /* Foundation.framework */; };
+		C9E0C61D1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */; };
+		C9E0C6201A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C9E0C6121A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCDistractionFreeXcodePlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E0C6151A4C76AA002ABB7B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		C9E0C6171A4C76AA002ABB7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		C9E0C61B1A4C76AA002ABB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WCDistractionFreeXcodePlugin.xcscheme; path = WCDistractionFreeXcodePlugin.xcodeproj/xcshareddata/xcschemes/WCDistractionFreeXcodePlugin.xcscheme; sourceTree = SOURCE_ROOT; };
+		C9E0C61E1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeXcodePlugin.h; sourceTree = "<group>"; };
+		C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeXcodePlugin.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9E0C6101A4C76AA002ABB7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E0C6161A4C76AA002ABB7B /* AppKit.framework in Frameworks */,
+				C9E0C6181A4C76AA002ABB7B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C9E0C6091A4C76AA002ABB7B = {
+			isa = PBXGroup;
+			children = (
+				C9E0C6191A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin */,
+				C9E0C6141A4C76AA002ABB7B /* Frameworks */,
+				C9E0C6131A4C76AA002ABB7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C9E0C6131A4C76AA002ABB7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0C6121A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9E0C6141A4C76AA002ABB7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0C6151A4C76AA002ABB7B /* AppKit.framework */,
+				C9E0C6171A4C76AA002ABB7B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9E0C6191A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0C61E1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.h */,
+				C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */,
+				C9E0C61A1A4C76AA002ABB7B /* Supporting Files */,
+			);
+			path = WCDistractionFreeXcodePlugin;
+			sourceTree = "<group>";
+		};
+		C9E0C61A1A4C76AA002ABB7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0C61B1A4C76AA002ABB7B /* Info.plist */,
+				C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9E0C6111A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9E0C6231A4C76AA002ABB7B /* Build configuration list for PBXNativeTarget "WCDistractionFreeXcodePlugin" */;
+			buildPhases = (
+				C9E0C60E1A4C76AA002ABB7B /* Sources */,
+				C9E0C60F1A4C76AA002ABB7B /* Resources */,
+				C9E0C6101A4C76AA002ABB7B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WCDistractionFreeXcodePlugin;
+			productName = WCDistractionFreeXcodePlugin;
+			productReference = C9E0C6121A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9E0C60A1A4C76AA002ABB7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Wojciech Czekalski";
+				TargetAttributes = {
+					C9E0C6111A4C76AA002ABB7B = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = C9E0C60D1A4C76AA002ABB7B /* Build configuration list for PBXProject "WCDistractionFreeXcodePlugin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C9E0C6091A4C76AA002ABB7B;
+			productRefGroup = C9E0C6131A4C76AA002ABB7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9E0C6111A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9E0C60F1A4C76AA002ABB7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E0C61D1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9E0C60E1A4C76AA002ABB7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9E0C6201A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C9E0C6211A4C76AA002ABB7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		C9E0C6221A4C76AA002ABB7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		C9E0C6241A4C76AA002ABB7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = WCDistractionFreeXcodePlugin/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		C9E0C6251A4C76AA002ABB7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = WCDistractionFreeXcodePlugin/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9E0C60D1A4C76AA002ABB7B /* Build configuration list for PBXProject "WCDistractionFreeXcodePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E0C6211A4C76AA002ABB7B /* Debug */,
+				C9E0C6221A4C76AA002ABB7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9E0C6231A4C76AA002ABB7B /* Build configuration list for PBXNativeTarget "WCDistractionFreeXcodePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9E0C6241A4C76AA002ABB7B /* Debug */,
+				C9E0C6251A4C76AA002ABB7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9E0C60A1A4C76AA002ABB7B /* Project object */;
+}

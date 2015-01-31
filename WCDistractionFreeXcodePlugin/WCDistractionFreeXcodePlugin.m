@@ -7,11 +7,15 @@
 //
 
 #import "WCDistractionFreeXcodePlugin.h"
+#import "WCDistractionFreeWindowController.h"
+
+#import "Aspects.h"
+#import "WCXcodeHeaders.h"
 
 static WCDistractionFreeXcodePlugin *sharedPlugin;
 
 @interface WCDistractionFreeXcodePlugin()
-
+@property (nonatomic, strong) WCDistractionFreeWindowController *windowController;
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 @end
 
@@ -39,31 +43,45 @@ static WCDistractionFreeXcodePlugin *sharedPlugin;
         // reference to plugin's bundle, for resource access
         self.bundle = plugin;
         
-        // Create menu items, initialize UI, etc.
-
-        // Sample Menu Item:
-        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
-        if (menuItem) {
-            [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
-            [actionMenuItem setTarget:self];
-            [[menuItem submenu] addItem:actionMenuItem];
+        NSMenu *mainMenu = [self mainMenu];
+        NSMenuItem *viewMenuItem = [mainMenu itemWithTitle:@"View"];
+        
+        if (viewMenuItem) {
+            NSMenuItem *distractionFreeModeItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:nil keyEquivalent:@""];
+            distractionFreeModeItem.target = self;
+            distractionFreeModeItem.action = @selector(showNewFullscreenWindow:);
+            [viewMenuItem.submenu insertItem:distractionFreeModeItem atIndex:0];
         }
+        
+        NSError *error = nil;
     }
     return self;
 }
 
-// Sample Action, for menu item:
-- (void)doMenuAction
+#pragma mark - Debug
+
+- (void)debugJumpToDefinition:(id)arg aspectInfo:(id<AspectInfo>)info
 {
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Hello, World"];
-    [alert runModal];
+    
+}
+
+- (void)showNewFullscreenWindow:(id)sender
+{
+    self.windowController = [[NSStoryboard storyboardWithName:@"Storyboard" bundle:self.bundle] instantiateInitialController];
+    [self.windowController showWindow:self];
+    [self.windowController.window toggleFullScreen:nil];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Getters
+
+- (NSMenu *)mainMenu
+{
+    return [NSApp mainMenu];
 }
 
 @end

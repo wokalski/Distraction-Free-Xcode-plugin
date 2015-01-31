@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="0K6-Lv-L4y">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="RZ6-pE-8qs">
+            <objects>
+                <windowController id="0K6-Lv-L4y" customClass="WCDistractionFreeWindowController" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="Vxl-H5-M8F">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="163" y="208" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+                    </window>
+                    <connections>
+                        <segue destination="yWb-r7-N8z" kind="relationship" relationship="window.shadowedContentViewController" id="urV-FQ-dhV"/>
+                    </connections>
+                </windowController>
+                <customObject id="c9N-x4-eRM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1315" y="239"/>
+        </scene>
+        <!--Distraction Free View Controller-->
+        <scene sceneID="B2w-JO-RhK">
+            <objects>
+                <viewController id="yWb-r7-N8z" customClass="WCDistractionFreeViewController" sceneMemberID="viewController">
+                    <view key="view" id="5hc-Z0-voo">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="o4e-qY-e0W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871" y="239"/>
+        </scene>
+    </scenes>
+</document>

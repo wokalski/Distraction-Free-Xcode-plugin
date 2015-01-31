@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "890A4B3E171F031300AFE577"
+               BlueprintIdentifier = "C9E0C6111A4C76AA002ABB7B"
                BuildableName = "WCDistractionFreeXcodePlugin.xcplugin"
                BlueprintName = "WCDistractionFreeXcodePlugin"
                ReferencedContainer = "container:WCDistractionFreeXcodePlugin.xcodeproj">
@@ -61,7 +61,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "890A4B3E171F031300AFE577"
+            BlueprintIdentifier = "C9E0C6111A4C76AA002ABB7B"
             BuildableName = "WCDistractionFreeXcodePlugin.xcplugin"
             BlueprintName = "WCDistractionFreeXcodePlugin"
             ReferencedContainer = "container:WCDistractionFreeXcodePlugin.xcodeproj">

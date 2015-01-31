@@ -7,17 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9E0C6161A4C76AA002ABB7B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E0C6151A4C76AA002ABB7B /* AppKit.framework */; };
-		C9E0C6181A4C76AA002ABB7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E0C6171A4C76AA002ABB7B /* Foundation.framework */; };
+		C92148181A628DB0001DA98F /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = C92148171A628DB0001DA98F /* Aspects.m */; };
+		C94011241A4DBAA70033DDFD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94011231A4DBAA70033DDFD /* Storyboard.storyboard */; };
+		C946A1B21A5C372700A27ED8 /* WCDistractionFreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */; };
+		C98D45081A61517F0078C952 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D45071A61517F0078C952 /* Cocoa.framework */; };
+		C9BF13F61A5E8B34003A9B11 /* WCDistractionFreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeViewController.m */; };
 		C9E0C61D1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */; };
 		C9E0C6201A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C92148161A628DB0001DA98F /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Aspects.h; path = "../../../Downloads/Aspects-master/Aspects.h"; sourceTree = "<group>"; };
+		C92148171A628DB0001DA98F /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Aspects.m; path = "../../../Downloads/Aspects-master/Aspects.m"; sourceTree = "<group>"; };
+		C94011231A4DBAA70033DDFD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		C946A1B01A5C372700A27ED8 /* WCDistractionFreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeWindowController.h; sourceTree = "<group>"; };
+		C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeWindowController.m; sourceTree = "<group>"; };
+		C98D45061A6144DA0078C952 /* WCXcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeHeaders.h; sourceTree = "<group>"; };
+		C98D45071A61517F0078C952 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeViewController.h; sourceTree = "<group>"; };
+		C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeViewController.m; sourceTree = "<group>"; };
 		C9E0C6121A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCDistractionFreeXcodePlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E0C6151A4C76AA002ABB7B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		C9E0C6171A4C76AA002ABB7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		C9E0C61B1A4C76AA002ABB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WCDistractionFreeXcodePlugin.xcscheme; path = WCDistractionFreeXcodePlugin.xcodeproj/xcshareddata/xcschemes/WCDistractionFreeXcodePlugin.xcscheme; sourceTree = SOURCE_ROOT; };
 		C9E0C61E1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeXcodePlugin.h; sourceTree = "<group>"; };
 		C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeXcodePlugin.m; sourceTree = "<group>"; };
@@ -28,8 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E0C6161A4C76AA002ABB7B /* AppKit.framework in Frameworks */,
-				C9E0C6181A4C76AA002ABB7B /* Foundation.framework in Frameworks */,
+				C98D45081A61517F0078C952 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +66,7 @@
 		C9E0C6141A4C76AA002ABB7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C98D45071A61517F0078C952 /* Cocoa.framework */,
 				C9E0C6151A4C76AA002ABB7B /* AppKit.framework */,
 				C9E0C6171A4C76AA002ABB7B /* Foundation.framework */,
 			);
@@ -67,6 +78,14 @@
 			children = (
 				C9E0C61E1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.h */,
 				C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */,
+				C946A1B01A5C372700A27ED8 /* WCDistractionFreeWindowController.h */,
+				C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */,
+				C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeViewController.h */,
+				C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeViewController.m */,
+				C94011231A4DBAA70033DDFD /* Storyboard.storyboard */,
+				C98D45061A6144DA0078C952 /* WCXcodeHeaders.h */,
+				C92148161A628DB0001DA98F /* Aspects.h */,
+				C92148171A628DB0001DA98F /* Aspects.m */,
 				C9E0C61A1A4C76AA002ABB7B /* Supporting Files */,
 			);
 			path = WCDistractionFreeXcodePlugin;
@@ -75,7 +94,6 @@
 		C9E0C61A1A4C76AA002ABB7B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C9E0C61B1A4C76AA002ABB7B /* Info.plist */,
 				C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */,
 			);
 			name = "Supporting Files";
@@ -91,6 +109,7 @@
 				C9E0C60E1A4C76AA002ABB7B /* Sources */,
 				C9E0C60F1A4C76AA002ABB7B /* Resources */,
 				C9E0C6101A4C76AA002ABB7B /* Frameworks */,
+				C9E0C6261A4C81C6002ABB7B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -138,17 +157,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E0C61D1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme in Resources */,
+				C94011241A4DBAA70033DDFD /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9E0C6261A4C81C6002ABB7B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9E0C60E1A4C76AA002ABB7B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BF13F61A5E8B34003A9B11 /* WCDistractionFreeViewController.m in Sources */,
+				C946A1B21A5C372700A27ED8 /* WCDistractionFreeWindowController.m in Sources */,
 				C9E0C6201A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m in Sources */,
+				C92148181A628DB0001DA98F /* Aspects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +273,7 @@
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -248,6 +288,7 @@
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
@@ -271,6 +312,7 @@
 				C9E0C6251A4C76AA002ABB7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,8 +8,6 @@
 
 #import "WCDistractionFreeXcodePlugin.h"
 #import "WCDistractionFreeWindowController.h"
-
-#import "Aspects.h"
 #import "WCXcodeHeaders.h"
 
 static WCDistractionFreeXcodePlugin *sharedPlugin;
@@ -52,22 +50,18 @@ static WCDistractionFreeXcodePlugin *sharedPlugin;
             distractionFreeModeItem.action = @selector(showNewFullscreenWindow:);
             [viewMenuItem.submenu insertItem:distractionFreeModeItem atIndex:0];
         }
-        
-        NSError *error = nil;
     }
     return self;
 }
 
-#pragma mark - Debug
-
-- (void)debugJumpToDefinition:(id)arg aspectInfo:(id<AspectInfo>)info
-{
-    
-}
-
 - (void)showNewFullscreenWindow:(id)sender
 {
-    self.windowController = [[NSStoryboard storyboardWithName:@"Storyboard" bundle:self.bundle] instantiateInitialController];
+    NSDocument *doc = [[NSClassFromString(@"IDEWorkspaceWindow") lastActiveWorkspaceWindowController] document];
+    self.windowController = [[NSStoryboard storyboardWithName:@"Zen" bundle:[NSBundle bundleForClass:[self class]]] instantiateInitialController];
+    
+    [self.windowController setWorkspaceDocumentLocal:doc];
+    
+    [self.windowController windowDidLoad];
     [self.windowController showWindow:self];
     [self.windowController.window toggleFullScreen:nil];
 }

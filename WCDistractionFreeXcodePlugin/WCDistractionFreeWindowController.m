@@ -7,31 +7,66 @@
 //
 
 #import "WCDistractionFreeWindowController.h"
-#import "WCDistractionFreeViewController.h"
+#import "WCDistractionFreeEditorController.h"
 #import "WCXcodeHeaders.h"
+#import "WCEditorConfiguration.h"
+#import "WCWorkspaceProxy.h"
 
-@interface WCDistractionFreeWindowController ()
-@property (nonatomic, weak) WCDistractionFreeViewController *distractionFreeViewController;
+@interface WCDistractionFreeWindowController () <IDEWorkspaceDocumentProvider>
+@property (nonatomic, weak) WCDistractionFreeEditorController *distractionFreeViewController;
+@property (nonatomic, strong, readonly) IDEWorkspaceDocument *workspaceDocumentLocal;
 @end
 
 @implementation WCDistractionFreeWindowController
+@synthesize workspaceDocumentLocal = _workspaceDocumentLocal;
+
+- (instancetype)initWithWindow:(NSWindow *)window document:(IDEWorkspaceDocument *)document
+{
+    self = [super initWithWindow:window];
+    if (self) {
+        NSParameterAssert(document);
+        _workspaceDocumentLocal = document;
+    }
+    return self;
+}
+
+- (void)setWorkspaceDocumentLocal:(IDEWorkspaceDocument *)doc
+{
+    _workspaceDocumentLocal = doc;
+}
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
     
-    self.distractionFreeViewController = (WCDistractionFreeViewController *)self.contentViewController;
-    IDESourceCodeDocument *document = [[self class] currentSourceCodeDocument];
-    IDEEditor *currentEditor = [[self class] currentEditor];
-    self.distractionFreeViewController.sourceCodeDocument = document;
-    self.distractionFreeViewController.textSettings = currentEditor.fileTextSettings;
-    self.distractionFreeViewController.tabController = currentEditor.workspaceTabController;
-    self.distractionFreeViewController.editorContext.greatestDocumentAncestor = currentEditor.editorContext.greatestDocumentAncestor;   
-    self.distractionFreeViewController.editorContext.originalRequestedDocumentURL = currentEditor.editorContext.originalRequestedDocumentURL;
+    self.distractionFreeViewController = (WCDistractionFreeEditorController *)self.contentViewController;
+    
+    WCWorkspaceProxy *proxy = [[WCWorkspaceProxy alloc] initWithWorkspace:[[self class] currentWorkspace] workspaceDocument:[[[self class] currentWorkspaceWindowController] document] windowController:self];
+    
+    WCEditorConfiguration *configuration = [[WCEditorConfiguration alloc] initWithConfigurationBuilder:^(WCEditorConfigurationBuilder *configuration) {
+        configuration.greatestDocumentAncestor = [[[self class] currentEditorContext] greatestDocumentAncestor];
+        configuration.tabController = (IDEWorkspaceTabController *)proxy;
+    }];
+    
+    [self.distractionFreeViewController setConfiguration:configuration];
 }
 
-+ (NSWindow *)currentWindow {
-    return [[NSApplication sharedApplication] keyWindow];
+- (IDEWorkspaceDocument *)workspaceDocument
+{
+    return [(WCWorkspaceProxy *)self.distractionFreeViewController.configuration.tabController workspaceDocument];
+}
+
+- (IDEWorkspace *)workspace
+{
+    return [[self class] currentWorkspace];
+}
+
++ (IDEWorkspaceWindow *)currentWindow {
+    NSWindow *keyWindow = [[NSApplication sharedApplication] keyWindow];
+    if ([keyWindow isKindOfClass:NSClassFromString(@"IDEWorkspaceWindow")]) {
+        return (IDEWorkspaceWindow *)keyWindow;
+    }
+    return nil;
 }
 
 + (NSResponder *)currentWindowResponder {
@@ -47,7 +82,7 @@
 }
 
 + (IDEWorkspaceWindowController *)currentWorkspaceWindowController {
-    NSWindowController *result = [self currentWindow].windowController;
+    NSWindowController *result = [NSClassFromString(@"IDEWorkspaceWindow") lastActiveWorkspaceWindowController];
     if ([result isKindOfClass:NSClassFromString(@"IDEWorkspaceWindowController")]) {
         return (IDEWorkspaceWindowController *)result;
     }
@@ -64,6 +99,11 @@
 
 + (IDEEditor *)currentEditor {
     return [self currentEditorContext].editor;
+}
+
++ (IDEWorkspace *)currentWorkspace
+{
+    return [[[self currentWorkspaceWindowController] document] workspace];
 }
 
 + (IDESourceCodeDocument *)currentSourceCodeDocument {
@@ -103,5 +143,15 @@
     return [view enclosingScrollView];
 }
 
+- (void)userWantsBreakpointsActivated
+{
+    
+}
+
+- (id)activeWorkspaceTabController
+{
+    return [[WCWorkspaceProxy alloc] initWithWorkspace:self.workspaceDocument.workspace workspaceDocument:self.workspaceDocument windowController:self];
+
+}
 
 @end

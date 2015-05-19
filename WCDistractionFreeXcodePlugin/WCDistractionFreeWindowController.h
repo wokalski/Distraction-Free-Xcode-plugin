@@ -8,5 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class IDEWorkspaceDocument;
+
 @interface WCDistractionFreeWindowController : NSWindowController
+- (instancetype)initWithWindow:(NSWindow *)window document:(IDEWorkspaceDocument *)document;
+- (void)setWorkspaceDocumentLocal:(IDEWorkspaceDocument *)doc;
 @end

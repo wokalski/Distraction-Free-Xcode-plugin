@@ -7,31 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C92148181A628DB0001DA98F /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = C92148171A628DB0001DA98F /* Aspects.m */; };
-		C94011241A4DBAA70033DDFD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94011231A4DBAA70033DDFD /* Storyboard.storyboard */; };
 		C946A1B21A5C372700A27ED8 /* WCDistractionFreeWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */; };
 		C98D45081A61517F0078C952 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D45071A61517F0078C952 /* Cocoa.framework */; };
-		C9BF13F61A5E8B34003A9B11 /* WCDistractionFreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeViewController.m */; };
+		C9BF13F61A5E8B34003A9B11 /* WCDistractionFreeEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeEditorController.m */; };
+		C9CF18891ACED5090000ABE1 /* WCContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CF18881ACED5090000ABE1 /* WCContainerView.m */; };
+		C9D1C2011AABC173007652CE /* WCEditorConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1C2001AABC173007652CE /* WCEditorConfiguration.m */; };
+		C9D1FA861AAD96AE00DA4FF1 /* WCWorkspaceProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D1FA851AAD96AE00DA4FF1 /* WCWorkspaceProxy.m */; };
 		C9E0C61D1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */; };
 		C9E0C6201A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C92148161A628DB0001DA98F /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Aspects.h; path = "../../../Downloads/Aspects-master/Aspects.h"; sourceTree = "<group>"; };
-		C92148171A628DB0001DA98F /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Aspects.m; path = "../../../Downloads/Aspects-master/Aspects.m"; sourceTree = "<group>"; };
-		C94011231A4DBAA70033DDFD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		C946A1B01A5C372700A27ED8 /* WCDistractionFreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeWindowController.h; sourceTree = "<group>"; };
 		C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeWindowController.m; sourceTree = "<group>"; };
 		C98D45061A6144DA0078C952 /* WCXcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeHeaders.h; sourceTree = "<group>"; };
 		C98D45071A61517F0078C952 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeViewController.h; sourceTree = "<group>"; };
-		C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeViewController.m; sourceTree = "<group>"; };
+		C9A8C9CA1AABBD9B00622A66 /* WCXcodeModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeModels.h; sourceTree = "<group>"; };
+		C9A8C9CB1AABBDEB00622A66 /* WCXcodeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeViews.h; sourceTree = "<group>"; };
+		C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeEditorController.h; sourceTree = "<group>"; };
+		C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeEditorController.m; sourceTree = "<group>"; };
+		C9CF18871ACED5090000ABE1 /* WCContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCContainerView.h; sourceTree = "<group>"; };
+		C9CF18881ACED5090000ABE1 /* WCContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCContainerView.m; sourceTree = "<group>"; };
+		C9D1C1FF1AABC173007652CE /* WCEditorConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditorConfiguration.h; sourceTree = "<group>"; };
+		C9D1C2001AABC173007652CE /* WCEditorConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCEditorConfiguration.m; sourceTree = "<group>"; };
+		C9D1FA841AAD96AE00DA4FF1 /* WCWorkspaceProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCWorkspaceProxy.h; sourceTree = "<group>"; };
+		C9D1FA851AAD96AE00DA4FF1 /* WCWorkspaceProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCWorkspaceProxy.m; sourceTree = "<group>"; };
 		C9E0C6121A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WCDistractionFreeXcodePlugin.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E0C6151A4C76AA002ABB7B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		C9E0C6171A4C76AA002ABB7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WCDistractionFreeXcodePlugin.xcscheme; path = WCDistractionFreeXcodePlugin.xcodeproj/xcshareddata/xcschemes/WCDistractionFreeXcodePlugin.xcscheme; sourceTree = SOURCE_ROOT; };
 		C9E0C61E1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeXcodePlugin.h; sourceTree = "<group>"; };
 		C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeXcodePlugin.m; sourceTree = "<group>"; };
+		C9F5ED4D1AABBE3F002E127C /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEEditorContext.h; sourceTree = "<group>"; };
+		C9F5ED4E1AABBE6E002E127C /* WCXcodeViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeViewControllers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +88,19 @@
 				C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */,
 				C946A1B01A5C372700A27ED8 /* WCDistractionFreeWindowController.h */,
 				C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */,
-				C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeViewController.h */,
-				C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeViewController.m */,
-				C94011231A4DBAA70033DDFD /* Storyboard.storyboard */,
+				C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeEditorController.h */,
+				C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeEditorController.m */,
+				C9CF18871ACED5090000ABE1 /* WCContainerView.h */,
+				C9CF18881ACED5090000ABE1 /* WCContainerView.m */,
+				C9D1FA841AAD96AE00DA4FF1 /* WCWorkspaceProxy.h */,
+				C9D1FA851AAD96AE00DA4FF1 /* WCWorkspaceProxy.m */,
+				C9D1C1FF1AABC173007652CE /* WCEditorConfiguration.h */,
+				C9D1C2001AABC173007652CE /* WCEditorConfiguration.m */,
 				C98D45061A6144DA0078C952 /* WCXcodeHeaders.h */,
-				C92148161A628DB0001DA98F /* Aspects.h */,
-				C92148171A628DB0001DA98F /* Aspects.m */,
+				C9F5ED4D1AABBE3F002E127C /* IDEEditorContext.h */,
+				C9A8C9CA1AABBD9B00622A66 /* WCXcodeModels.h */,
+				C9A8C9CB1AABBDEB00622A66 /* WCXcodeViews.h */,
+				C9F5ED4E1AABBE6E002E127C /* WCXcodeViewControllers.h */,
 				C9E0C61A1A4C76AA002ABB7B /* Supporting Files */,
 			);
 			path = WCDistractionFreeXcodePlugin;
@@ -157,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9E0C61D1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme in Resources */,
-				C94011241A4DBAA70033DDFD /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,10 +198,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9BF13F61A5E8B34003A9B11 /* WCDistractionFreeViewController.m in Sources */,
+				C9CF18891ACED5090000ABE1 /* WCContainerView.m in Sources */,
+				C9D1FA861AAD96AE00DA4FF1 /* WCWorkspaceProxy.m in Sources */,
+				C9BF13F61A5E8B34003A9B11 /* WCDistractionFreeEditorController.m in Sources */,
 				C946A1B21A5C372700A27ED8 /* WCDistractionFreeWindowController.m in Sources */,
 				C9E0C6201A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m in Sources */,
-				C92148181A628DB0001DA98F /* Aspects.m in Sources */,
+				C9D1C2011AABC173007652CE /* WCEditorConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

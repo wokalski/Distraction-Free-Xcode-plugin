@@ -36,7 +36,7 @@
 - (id)initWithNavigableItemArchivableRepresentation:(id)arg1 documentExtensionIdentifier:(id)arg2 error:(id *)arg3;
 - (id)initWithNavigableItemArchivableRepresentation:(id)arg1 locationToSelect:(id)arg2 error:(id *)arg3;
 - (id)initWithNavigableItemArchivableRepresentation:(id)arg1 error:(id *)arg2;
-- (id)initWithNavigableItem:(id)arg1 locationToSelect:(id)arg2 documentExtensionIdentifier:(id)arg3 error:(id *)arg4;
+- (id);
 - (id)initWithNavigableItem:(id)arg1 documentExtensionIdentifier:(id)arg2 error:(id *)arg3;
 - (id)initWithNavigableItem:(id)arg1 locationToSelect:(id)arg2 error:(id *)arg3;
 - (id)initWithNavigableItem:(id)arg1 error:(id *)arg2;

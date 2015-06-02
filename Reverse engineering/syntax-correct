@@ -1,0 +1,6 @@
+CPU FUNCTION                                 
+  0  -> -syntaxColoringContextForTextView:    
+  0    -> -count                              
+  0    <- -count                              
+  0  <- -syntaxColoringContextForTextView:    
+

@@ -1,0 +1,45 @@
+
+#pragma D option quiet
+
+unsigned long long indention;
+int indentation_amount;
+
+BEGIN {
+  indentation_amount = 4;
+}
+
+/* the : in method selectors must be replaced with ? */
+objc$1:IDESourceCodeNavigationRequest:-jumpToDefinitionOfExpression?fromScreenPoint?:entry
+{
+    tracing++;
+}
+
+objc$1:IDESourceCodeNavigationRequest:-jumpToDefinitionOfExpression?fromScreenPoint?:return
+{
+    tracing--;
+    exit(0);
+}
+
+objc$1:IDE*::entry
+/
+    tracing > 0
+/
+{
+    method = (string)&probefunc[1];
+    type = probefunc[0];
+    class = probemod;
+    printf("%lu %*s%s %c[%s %s]\n", timestamp, indention * indentation_amount, "", "->", type, class, method);
+    indention++;
+}
+
+objc$1:IDE*::return
+/
+    tracing > 0
+/
+{
+    indention--;
+    method = (string)&probefunc[1];
+    type = probefunc[0];
+    class = probemod;
+    printf("%lu %*s%s %c[%s %s]\n", timestamp, indention * indentation_amount, "", "<-", type, class, method);
+}

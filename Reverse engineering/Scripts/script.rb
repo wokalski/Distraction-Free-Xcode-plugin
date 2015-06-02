@@ -1,3 +1,7 @@
+
+# This (ugly) script dumps all framework/plugin headers from a given directory. It's nothing future-safe. Interesting places to run it are ~/Applications/Xcode/Contents/[PlugIns | Frameworks | Other Frameworks | Shared Frameworks].
+
+
 def dumpHeaders(directory, outputDirectory)
 	if directory.split('.').last == "framework"
 		directory << "/Versions/A/"
@@ -27,4 +31,6 @@ def dumpFilesInDirectory(directory, outputDirectory)
 	end
 end
 
-dumpFilesInDirectory(Dir.pwd, "/Users/wczekalski/Documents/Work/Projekty/Xcode-Plugin-Template/Project\\ Templates/Application\\ Plug-in/Xcode\\ Plugin.xctemplate/Headers")
+outputDir = nil
+
+dumpFilesInDirectory(Dir.pwd, nil)

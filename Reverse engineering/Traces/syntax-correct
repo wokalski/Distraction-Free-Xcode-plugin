@@ -1,3 +1,7 @@
+
+// Usually, the text view delegate simply returns a dictionary
+
+
 CPU FUNCTION                                 
   0  -> -syntaxColoringContextForTextView:    
   0    -> -count                              

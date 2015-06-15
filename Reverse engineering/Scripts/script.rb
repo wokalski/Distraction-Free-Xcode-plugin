@@ -31,6 +31,7 @@ def dumpFilesInDirectory(directory, outputDirectory)
 	end
 end
 
+# Change this to your output directory
 outputDir = nil
 
 dumpFilesInDirectory(Dir.pwd, nil)

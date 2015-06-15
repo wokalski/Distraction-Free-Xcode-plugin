@@ -1,0 +1,128 @@
+CPU FUNCTION                                 
+  2  -> -jumpToDefinitionOfExpression:fromScreenPoint: IDESourceCodeNavigationRequest
+  2    -> +_navigationLogAspect               IDESourceCodeNavigationRequest
+  2    <- +_navigationLogAspect               
+  2    -> +_eventBehaviorForEventType:        IDEEditorCoordinator
+  2    <- +_eventBehaviorForEventType:        
+  2    -> -isExpressionModuleImport:          IDESourceCodeEditor
+  2      -> -_isExpressionImport:module:      IDESourceCodeEditor
+  2        -> -sourceCodeDocument             IDESourceCodeEditor
+  2          -> -document                     IDEEditor
+  2          <- -document                     
+  2        <- -sourceCodeDocument             
+  2        -> -textStorage                    IDESourceCodeDocument
+  2        <- -textStorage                    
+  2        -> -sourceCodeDocument             IDESourceCodeEditor
+  2          -> -document                     IDEEditor
+  2          <- -document                     
+  2        <- -sourceCodeDocument             
+  2        -> -characterRangeFromDocumentLocation: IDESourceCodeDocument
+  2          -> -textStorage                  IDESourceCodeDocument
+  2          <- -textStorage                  
+  2        <- -characterRangeFromDocumentLocation: 
+  2      <- -_isExpressionImport:module:      
+  2      -> -_destinationLocationForImportedFileInExpression:inQueue:completionBlock: IDESourceCodeNavigationRequest
+  2        -> +_navigationLogAspect           IDESourceCodeNavigationRequest
+  2        <- +_navigationLogAspect           
+  2        -> -isExpressionPoundImport:       IDESourceCodeEditor
+  2          -> -_isExpressionImport:module:  IDESourceCodeEditor
+  2            -> -sourceCodeDocument         IDESourceCodeEditor
+  2              -> -document                 IDEEditor
+  2              <- -document                 
+  2            <- -sourceCodeDocument         
+  2            -> -textStorage                IDESourceCodeDocument
+  2            <- -textStorage                
+  2            -> -sourceCodeDocument         IDESourceCodeEditor
+  2              -> -document                 IDEEditor
+  2              <- -document                 
+  2            <- -sourceCodeDocument         
+  2            -> -characterRangeFromDocumentLocation: IDESourceCodeDocument
+  2              -> -textStorage              IDESourceCodeDocument
+  2              <- -textStorage              
+  2            <- -characterRangeFromDocumentLocation: 
+  2          <- -_isExpressionImport:module:  
+  2        <- -_destinationLocationForImportedFileInExpression:inQueue:completionBlock: 
+  2        -> -_symbolOccurrencesForExpression:includeCurrentLoc:onlyCurrentDeclarator:inQueue:completionBlock: IDESourceCodeNavigationRequest
+  2          -> -sourceCodeDocument           IDESourceCodeEditor
+  2            -> -document                   IDEEditor
+  2            <- -document                   
+  2          <- -sourceCodeDocument           
+  2          -> -updatedLocationFromLocation:toTimestamp: IDESourceCodeDocument
+  2            -> -textStorage                IDESourceCodeDocument
+  2            <- -textStorage                
+  2          <- -updatedLocationFromLocation:toTimestamp: 
+  2          -> -workspaceTabController       IDEViewController
+  2          <- -workspaceTabController       
+  2          -> +_navigationLogAspect         IDESourceCodeNavigationRequest
+  2          <- +_navigationLogAspect         
+  2          -> -isExpressionWithinComment:   IDESourceCodeEditor
+  2            -> -sourceCodeDocument         IDESourceCodeEditor
+  2              -> -document                 IDEEditor
+  2              <- -document                 
+  2            <- -sourceCodeDocument         
+  2            -> -textStorage                IDESourceCodeDocument
+  2            <- -textStorage                
+  2          <- -isExpressionWithinComment:   
+  2          -> -_looksLikeASetter:           IDESourceCodeNavigationRequest
+  2            -> -sourceCodeDocument         IDESourceCodeEditor
+  2              -> -document                 IDEEditor
+  2              <- -document                 
+  2            <- -sourceCodeDocument         
+  2            -> -textStorage                IDESourceCodeDocument
+  2            <- -textStorage                
+  2          <- -_looksLikeASetter:           
+  2          -> -isExpressionInFunctionOrMethodBody: IDESourceCodeEditor
+  2            -> -isLocationInFunctionOrMethodBody: IDESourceCodeEditor
+  2              -> -sourceCodeDocument       IDESourceCodeEditor
+  2                -> -document               IDEEditor
+  2                <- -document               
+  2              <- -sourceCodeDocument       
+  2              -> -textStorage              IDESourceCodeDocument
+  2              <- -textStorage              
+  2            <- -isLocationInFunctionOrMethodBody: 
+  2          <- -isExpressionInFunctionOrMethodBody: 
+  2          -> +_indexQueriesSharedQueue     IDESourceCodeNavigationRequest
+  2          <- +_indexQueriesSharedQueue     
+  2          -> -symbolsForExpression:inQueue:completionBlock: IDESourceCodeEditor
+  2            -> -workspaceTabController     IDEViewController
+  2            <- -workspaceTabController     
+  2            -> +editedFileContents         IDEEditorDocument
+  2              -> +sharedDocumentController IDEDocumentController
+  2              <- +sharedDocumentController 
+  2              -> -editorDocumentsToSave    IDEDocumentController
+  2                -> -documents              IDEDocumentController
+  2                <- -documents              
+  2                -> -undoManager            IDEEditorDocument
+  2                  -> -isClosed             IDEEditorDocument
+  2                  <- -isClosed             
+  2                <- -undoManager            
+  2                -> -undoManager            IDEEditorDocument
+  2                  -> -isClosed             IDEEditorDocument
+  2                  <- -isClosed             
+  2                <- -undoManager            
+  2                -> -undoManager            IDEEditorDocument
+  2                  -> -isClosed             IDEEditorDocument
+  2                  <- -isClosed             
+  2                <- -undoManager            
+  2              <- -editorDocumentsToSave    
+  2            <- +editedFileContents         
+  2            -> -sourceCodeDocument         IDESourceCodeEditor
+  2              -> -document                 IDEEditor
+  2              <- -document                 
+  2            <- -sourceCodeDocument         
+  2            -> -indexCompatibleLocationFromLocation: IDESourceCodeDocument
+  2              -> -textStorage              IDESourceCodeDocument
+  2              <- -textStorage              
+  2            <- -indexCompatibleLocationFromLocation: 
+  2            -> -languageService            IDESourceCodeEditor
+  2              -> -sourceCodeDocument       IDESourceCodeEditor
+  2                -> -document               IDEEditor
+  2                <- -document               
+  2              <- -sourceCodeDocument       
+  2              -> -textStorage              IDESourceCodeDocument
+  2              <- -textStorage              
+  2            <- -languageService            
+  2          <- -symbolsForExpression:inQueue:completionBlock: 
+  2        <- -_symbolOccurrencesForExpression:includeCurrentLoc:onlyCurrentDeclarator:inQueue:completionBlock: 
+  2      <- -jumpToDefinitionOfExpression:fromScreenPoint: 
+

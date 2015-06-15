@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C92A2C8C1B2F970900861B1E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A2C8B1B2F970900861B1E /* AppKit.framework */; };
+		C92A2C8E1B2F970900861B1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A2C8D1B2F970900861B1E /* Foundation.framework */; };
+		C92A2C931B2F970900861B1E /* Zen.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = C92A2C921B2F970900861B1E /* Zen.xcscheme */; };
+		C92A2C961B2F970900861B1E /* Zen.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2C951B2F970900861B1E /* Zen.m */; };
+		C92A2C991B2F970900861B1E /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2C981B2F970900861B1E /* NSObject_Extension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C92A2C881B2F970900861B1E /* Zen.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Zen.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		C92A2C8B1B2F970900861B1E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		C92A2C8D1B2F970900861B1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		C92A2C911B2F970900861B1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C92A2C921B2F970900861B1E /* Zen.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Zen.xcscheme; path = Zen.xcodeproj/xcshareddata/xcschemes/Zen.xcscheme; sourceTree = SOURCE_ROOT; };
+		C92A2C941B2F970900861B1E /* Zen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zen.h; sourceTree = "<group>"; };
+		C92A2C951B2F970900861B1E /* Zen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zen.m; sourceTree = "<group>"; };
+		C92A2C971B2F970900861B1E /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
+		C92A2C981B2F970900861B1E /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C92A2C861B2F970900861B1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C92A2C8C1B2F970900861B1E /* AppKit.framework in Frameworks */,
+				C92A2C8E1B2F970900861B1E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C92A2C7F1B2F970900861B1E = {
+			isa = PBXGroup;
+			children = (
+				C92A2C8F1B2F970900861B1E /* Zen */,
+				C92A2C8A1B2F970900861B1E /* Frameworks */,
+				C92A2C891B2F970900861B1E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C92A2C891B2F970900861B1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C92A2C881B2F970900861B1E /* Zen.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C92A2C8A1B2F970900861B1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C92A2C8B1B2F970900861B1E /* AppKit.framework */,
+				C92A2C8D1B2F970900861B1E /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C92A2C8F1B2F970900861B1E /* Zen */ = {
+			isa = PBXGroup;
+			children = (
+				C92A2C941B2F970900861B1E /* Zen.h */,
+				C92A2C951B2F970900861B1E /* Zen.m */,
+				C92A2C971B2F970900861B1E /* NSObject_Extension.h */,
+				C92A2C981B2F970900861B1E /* NSObject_Extension.m */,
+				C92A2C901B2F970900861B1E /* Supporting Files */,
+			);
+			path = Zen;
+			sourceTree = "<group>";
+		};
+		C92A2C901B2F970900861B1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C92A2C911B2F970900861B1E /* Info.plist */,
+				C92A2C921B2F970900861B1E /* Zen.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C92A2C871B2F970900861B1E /* Zen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C92A2C9C1B2F970900861B1E /* Build configuration list for PBXNativeTarget "Zen" */;
+			buildPhases = (
+				C92A2C841B2F970900861B1E /* Sources */,
+				C92A2C851B2F970900861B1E /* Resources */,
+				C92A2C861B2F970900861B1E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zen;
+			productName = Zen;
+			productReference = C92A2C881B2F970900861B1E /* Zen.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C92A2C801B2F970900861B1E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Wojciech Czekalski";
+				TargetAttributes = {
+					C92A2C871B2F970900861B1E = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C92A2C831B2F970900861B1E /* Build configuration list for PBXProject "Zen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C92A2C7F1B2F970900861B1E;
+			productRefGroup = C92A2C891B2F970900861B1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C92A2C871B2F970900861B1E /* Zen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C92A2C851B2F970900861B1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C92A2C931B2F970900861B1E /* Zen.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C92A2C841B2F970900861B1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C92A2C961B2F970900861B1E /* Zen.m in Sources */,
+				C92A2C991B2F970900861B1E /* NSObject_Extension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C92A2C9A1B2F970900861B1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		C92A2C9B1B2F970900861B1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		C92A2C9D1B2F970900861B1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = Zen/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		C92A2C9E1B2F970900861B1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = Zen/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C92A2C831B2F970900861B1E /* Build configuration list for PBXProject "Zen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C92A2C9A1B2F970900861B1E /* Debug */,
+				C92A2C9B1B2F970900861B1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C92A2C9C1B2F970900861B1E /* Build configuration list for PBXNativeTarget "Zen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C92A2C9D1B2F970900861B1E /* Debug */,
+				C92A2C9E1B2F970900861B1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C92A2C801B2F970900861B1E /* Project object */;
+}

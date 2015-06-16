@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WCXcodeHeaders.h"
+#import "XcodeHeaders.h"
 
 @interface WCWorkspaceProxy : NSProxy
 @property (nonatomic, strong, readonly) IDEWorkspaceDocument *workspaceDocument;

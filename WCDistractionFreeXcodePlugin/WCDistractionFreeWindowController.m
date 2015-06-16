@@ -8,7 +8,7 @@
 
 #import "WCDistractionFreeWindowController.h"
 #import "WCDistractionFreeEditorController.h"
-#import "WCXcodeHeaders.h"
+#import "XcodeHeaders.h"
 #import "WCEditorConfiguration.h"
 #import "WCWorkspaceProxy.h"
 

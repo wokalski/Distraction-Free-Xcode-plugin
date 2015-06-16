@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WCXcodeHeaders.h"
+#import "XcodeHeaders.h"
 
 @protocol WCEditorConfiguration <NSObject>
 @property (nonatomic, readonly) IDEWorkspace *workspace;

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Wojciech Czekalski. All rights reserved.
 //
 
-#import "WCXcodeModels.h"
-#import "WCXcodeViews.h"
+#import "XcodeModels.h"
+#import "XcodeViews.h"
 
 @interface DVTViewController : NSViewController
 @end

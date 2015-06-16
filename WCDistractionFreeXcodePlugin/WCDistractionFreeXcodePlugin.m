@@ -8,7 +8,7 @@
 
 #import "WCDistractionFreeXcodePlugin.h"
 #import "WCDistractionFreeWindowController.h"
-#import "WCXcodeHeaders.h"
+#import "XcodeHeaders.h"
 
 static WCDistractionFreeXcodePlugin *sharedPlugin;
 

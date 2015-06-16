@@ -24,6 +24,11 @@
 		C92A2C951B2F970900861B1E /* Zen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zen.m; sourceTree = "<group>"; };
 		C92A2C971B2F970900861B1E /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
 		C92A2C981B2F970900861B1E /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+		C92A2C9F1B2F985C00861B1E /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorContext.h; path = ../../WCDistractionFreeXcodePlugin/IDEEditorContext.h; sourceTree = "<group>"; };
+		C92A2CA01B2F985C00861B1E /* WCXcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCXcodeHeaders.h; path = ../../WCDistractionFreeXcodePlugin/WCXcodeHeaders.h; sourceTree = "<group>"; };
+		C92A2CA11B2F985C00861B1E /* WCXcodeModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCXcodeModels.h; path = ../../WCDistractionFreeXcodePlugin/WCXcodeModels.h; sourceTree = "<group>"; };
+		C92A2CA21B2F985C00861B1E /* WCXcodeViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCXcodeViewControllers.h; path = ../../WCDistractionFreeXcodePlugin/WCXcodeViewControllers.h; sourceTree = "<group>"; };
+		C92A2CA31B2F985C00861B1E /* WCXcodeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WCXcodeViews.h; path = ../../WCDistractionFreeXcodePlugin/WCXcodeViews.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 				C92A2C951B2F970900861B1E /* Zen.m */,
 				C92A2C971B2F970900861B1E /* NSObject_Extension.h */,
 				C92A2C981B2F970900861B1E /* NSObject_Extension.m */,
+				C92A2CA41B2F986100861B1E /* Xcode headers */,
 				C92A2C901B2F970900861B1E /* Supporting Files */,
 			);
 			path = Zen;
@@ -84,6 +90,18 @@
 				C92A2C921B2F970900861B1E /* Zen.xcscheme */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C92A2CA41B2F986100861B1E /* Xcode headers */ = {
+			isa = PBXGroup;
+			children = (
+				C92A2C9F1B2F985C00861B1E /* IDEEditorContext.h */,
+				C92A2CA01B2F985C00861B1E /* WCXcodeHeaders.h */,
+				C92A2CA11B2F985C00861B1E /* WCXcodeModels.h */,
+				C92A2CA21B2F985C00861B1E /* WCXcodeViewControllers.h */,
+				C92A2CA31B2F985C00861B1E /* WCXcodeViews.h */,
+			);
+			name = "Xcode headers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

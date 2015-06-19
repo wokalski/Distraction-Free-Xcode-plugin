@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Wojciech Czekalski. All rights reserved.
 //
 
-#import "WCXcodeHeaders.h"
+#import "XcodeHeaders.h"
 
 @class IDEEditorContext;
 

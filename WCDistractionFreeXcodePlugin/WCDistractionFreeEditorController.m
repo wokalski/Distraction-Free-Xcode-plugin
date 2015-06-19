@@ -7,7 +7,7 @@
 //
 
 #import "WCDistractionFreeEditorController.h"
-#import "WCXcodeHeaders.h"
+#import "XcodeHeaders.h"
 #import "WCEditorConfiguration.h"
 #import "WCContainerView.h"
 #import <objc/objc-runtime.h>

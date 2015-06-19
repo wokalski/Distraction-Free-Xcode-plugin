@@ -18,12 +18,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C92A2CA51B2F9F8A00861B1E /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorContext.h; path = "Reverse engineering/Headers/IDEEditorContext.h"; sourceTree = SOURCE_ROOT; };
+		C92A2CA61B2F9F8A00861B1E /* XcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeHeaders.h; path = "Reverse engineering/Headers/XcodeHeaders.h"; sourceTree = SOURCE_ROOT; };
+		C92A2CA71B2F9F8A00861B1E /* XcodeModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeModels.h; path = "Reverse engineering/Headers/XcodeModels.h"; sourceTree = SOURCE_ROOT; };
+		C92A2CA81B2F9F8A00861B1E /* XcodeViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeViewControllers.h; path = "Reverse engineering/Headers/XcodeViewControllers.h"; sourceTree = SOURCE_ROOT; };
+		C92A2CA91B2F9F8A00861B1E /* XcodeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeViews.h; path = "Reverse engineering/Headers/XcodeViews.h"; sourceTree = SOURCE_ROOT; };
 		C946A1B01A5C372700A27ED8 /* WCDistractionFreeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeWindowController.h; sourceTree = "<group>"; };
 		C946A1B11A5C372700A27ED8 /* WCDistractionFreeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeWindowController.m; sourceTree = "<group>"; };
-		C98D45061A6144DA0078C952 /* WCXcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeHeaders.h; sourceTree = "<group>"; };
 		C98D45071A61517F0078C952 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		C9A8C9CA1AABBD9B00622A66 /* WCXcodeModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeModels.h; sourceTree = "<group>"; };
-		C9A8C9CB1AABBDEB00622A66 /* WCXcodeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeViews.h; sourceTree = "<group>"; };
 		C9BF13F41A5E8B34003A9B11 /* WCDistractionFreeEditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeEditorController.h; sourceTree = "<group>"; };
 		C9BF13F51A5E8B34003A9B11 /* WCDistractionFreeEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeEditorController.m; sourceTree = "<group>"; };
 		C9CF18871ACED5090000ABE1 /* WCContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCContainerView.h; sourceTree = "<group>"; };
@@ -38,8 +40,6 @@
 		C9E0C61C1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = WCDistractionFreeXcodePlugin.xcscheme; path = WCDistractionFreeXcodePlugin.xcodeproj/xcshareddata/xcschemes/WCDistractionFreeXcodePlugin.xcscheme; sourceTree = SOURCE_ROOT; };
 		C9E0C61E1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCDistractionFreeXcodePlugin.h; sourceTree = "<group>"; };
 		C9E0C61F1A4C76AA002ABB7B /* WCDistractionFreeXcodePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCDistractionFreeXcodePlugin.m; sourceTree = "<group>"; };
-		C9F5ED4D1AABBE3F002E127C /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDEEditorContext.h; sourceTree = "<group>"; };
-		C9F5ED4E1AABBE6E002E127C /* WCXcodeViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCXcodeViewControllers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +96,11 @@
 				C9D1FA851AAD96AE00DA4FF1 /* WCWorkspaceProxy.m */,
 				C9D1C1FF1AABC173007652CE /* WCEditorConfiguration.h */,
 				C9D1C2001AABC173007652CE /* WCEditorConfiguration.m */,
-				C98D45061A6144DA0078C952 /* WCXcodeHeaders.h */,
-				C9F5ED4D1AABBE3F002E127C /* IDEEditorContext.h */,
-				C9A8C9CA1AABBD9B00622A66 /* WCXcodeModels.h */,
-				C9A8C9CB1AABBDEB00622A66 /* WCXcodeViews.h */,
-				C9F5ED4E1AABBE6E002E127C /* WCXcodeViewControllers.h */,
+				C92A2CA51B2F9F8A00861B1E /* IDEEditorContext.h */,
+				C92A2CA61B2F9F8A00861B1E /* XcodeHeaders.h */,
+				C92A2CA71B2F9F8A00861B1E /* XcodeModels.h */,
+				C92A2CA81B2F9F8A00861B1E /* XcodeViewControllers.h */,
+				C92A2CA91B2F9F8A00861B1E /* XcodeViews.h */,
 				C9E0C61A1A4C76AA002ABB7B /* Supporting Files */,
 			);
 			path = WCDistractionFreeXcodePlugin;

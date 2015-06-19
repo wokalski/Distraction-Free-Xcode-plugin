@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "WCXcodeModels.h"
-#import "WCXcodeViews.h"
-#import "WCXcodeViewControllers.h"
+#import "XcodeModels.h"
+#import "XcodeViews.h"
+#import "XcodeViewControllers.h"
 #import "IDEEditorContext.h"
 
 @protocol IDEWorkspaceDocumentProvider <NSObject>

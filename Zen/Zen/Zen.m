@@ -7,10 +7,16 @@
 //
 
 #import "Zen.h"
+#import "ZENViewController.h"
+#import "ZENStupidLayout.h"
+#import "ZENContainerView.h"
+#import "ZENWindowController.h"
 
 @interface Zen()
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
+@property (nonatomic, strong) NSWindowController *windowController;
+
 @end
 
 @implementation Zen
@@ -43,9 +49,33 @@
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"View"];
     if (menuItem) {
         [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"GO ZEN" action:nil keyEquivalent:@""];
-        [[menuItem submenu] addItem:actionMenuItem];
+        [[menuItem submenu] addItem:[self ZEN_menuItem]];
     }
+}
+
+- (NSMenuItem *)ZEN_menuItem
+{
+    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"GO ZEN" action:@selector(launch:) keyEquivalent:@""];
+    [actionMenuItem setTarget:self];
+    return actionMenuItem;
+}
+
+- (void)launch:(id)sender
+{
+    NSViewController *viewController = [[NSViewController alloc] init];
+    
+    NSTextView *textView = [[NSTextView alloc] initWithFrame:NSZeroRect];
+    
+    viewController.view = textView;
+    
+    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:viewController layout:[ZENStupidLayout new]];
+    
+    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:[NSWindow windowWithContentViewController:zenController]];
+    
+    [windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
+    [windowController showWindow:self];
+    
+    self.windowController = windowController;
 }
 
 - (void)dealloc

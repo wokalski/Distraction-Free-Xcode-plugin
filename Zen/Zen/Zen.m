@@ -8,9 +8,11 @@
 
 #import "Zen.h"
 #import "ZENViewController.h"
-#import "ZENStupidLayout.h"
+#import "ZENMinimalLayout.h"
 #import "ZENContainerView.h"
 #import "ZENWindowController.h"
+
+static Zen *sharedPlugin;
 
 @interface Zen()
 
@@ -20,6 +22,17 @@
 @end
 
 @implementation Zen
+
++ (void)pluginDidLoad:(NSBundle *)plugin
+{
+    static dispatch_once_t onceToken;
+    NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+    if ([currentApplicationName isEqual:@"Xcode"]) {
+        dispatch_once(&onceToken, ^{
+            sharedPlugin = [[Zen alloc] initWithBundle:plugin];
+        });
+    }
+}
 
 + (instancetype)sharedPlugin
 {
@@ -62,20 +75,18 @@
 
 - (void)launch:(id)sender
 {
-    NSViewController *viewController = [[NSViewController alloc] init];
-    
-    NSTextView *textView = [[NSTextView alloc] initWithFrame:NSZeroRect];
-    
-    viewController.view = textView;
-    
-    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:viewController layout:[ZENStupidLayout new]];
+    self.windowController = [self makeWindowController];
+    [self.windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
+    [self.windowController showWindow:self];
+}
+
+- (NSWindowController *)makeWindowController
+{
+    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:nil layout:[ZENMinimalLayout new]];
     
     NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:[NSWindow windowWithContentViewController:zenController]];
     
-    [windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
-    [windowController showWindow:self];
-    
-    self.windowController = windowController;
+    return windowController;
 }
 
 - (void)dealloc

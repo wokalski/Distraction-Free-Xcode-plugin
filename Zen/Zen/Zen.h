@@ -10,8 +10,6 @@
 
 @class Zen;
 
-static Zen *sharedPlugin;
-
 @interface Zen : NSObject
 
 + (instancetype)sharedPlugin;

@@ -8,9 +8,14 @@
 
 #import "Zen.h"
 #import "ZENViewController.h"
-#import "ZENStupidLayout.h"
+#import "ZENMinimalLayout.h"
 #import "ZENContainerView.h"
 #import "ZENWindowController.h"
+#import "XcodeHeaders.h"
+#import "ZENIDEEditorContextConfiguration.h"
+#import "ZENEditorWrapperViewController.h"
+
+static Zen *sharedPlugin;
 
 @interface Zen()
 
@@ -20,6 +25,17 @@
 @end
 
 @implementation Zen
+
++ (void)pluginDidLoad:(NSBundle *)plugin
+{
+    static dispatch_once_t onceToken;
+    NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+    if ([currentApplicationName isEqual:@"Xcode"]) {
+        dispatch_once(&onceToken, ^{
+            sharedPlugin = [[Zen alloc] initWithBundle:plugin];
+        });
+    }
+}
 
 + (instancetype)sharedPlugin
 {
@@ -62,20 +78,31 @@
 
 - (void)launch:(id)sender
 {
-    NSViewController *viewController = [[NSViewController alloc] init];
+    self.windowController = [self makeWindowController];
+    [self.windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
+    [self.windowController showWindow:self];
+}
+
+- (NSWindowController *)makeWindowController
+{
+    IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
     
-    NSTextView *textView = [[NSTextView alloc] initWithFrame:NSZeroRect];
+    ZENIDEEditorContextConfiguration *editorConfiguration = [[ZENIDEEditorContextConfiguration alloc] initWithIDEWorkspaceTabController:workspaceController.activeWorkspaceTabController];
     
-    viewController.view = textView;
+    IDEEditorContext *editorContext = [[IDEEditorContext alloc] initWithNibName:NSStringFromClass([IDEEditorContext class]) bundle:[NSBundle bundleForClass:[IDEEditorContext class]]];
     
-    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:viewController layout:[ZENStupidLayout new]];
+    ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext workspaceDocument:workspaceController.activeWorkspaceTabController.workspaceDocument];
+    
+    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new]];
     
     NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:[NSWindow windowWithContentViewController:zenController]];
     
-    [windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
-    [windowController showWindow:self];
+    editorContext.delegate = wrapperViewController;
     
-    self.windowController = windowController;
+    // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
+    [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];
+
+    return windowController;
 }
 
 - (void)dealloc

@@ -12,13 +12,18 @@
 @interface DVTViewController : NSViewController
 @end
 
+@class IDEEditorArea;
+
 @interface IDEWorkspaceTabController : NSViewController
 @property (nonatomic, strong, readonly) IDEWorkspaceDocument *workspaceDocument;
+@property(readonly) IDEEditorArea *editorArea;
 @end
 
 @interface IDEViewController : DVTViewController
 @property (nonatomic, strong) IDEWorkspaceTabController *workspaceTabController;
+- (id)_resolveWorkspaceDocumentProvider;
 @end
+
 
 @class IDEEditorContext;
 @interface IDEEditorArea : IDEViewController
@@ -52,6 +57,7 @@
 @end
 
 @interface IDEWorkspaceWindowController : NSWindowController
+@property(readonly) IDEWorkspaceTabController *activeWorkspaceTabController;
 @property(readonly) IDEEditorArea *editorArea;
 - (IDEWorkspaceDocument *)document;
 @end

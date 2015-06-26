@@ -74,4 +74,6 @@
 @interface IDEEditorDocument : NSDocument
 @end
 
-
+@protocol IDEWorkspaceDocumentProvider <NSObject>
+@property(readonly) IDEWorkspaceDocument *workspaceDocument;
+@end

@@ -29,10 +29,19 @@
 
 - (void)_openEditorOpenSpecifier:(IDEEditorOpenSpecifier *)openSpecifier editorContext:(IDEEditorContext *)editorContext takeFocus:(BOOL)takeFocus
 {
-    if ([editorContext openEditorOpenSpecifier:openSpecifier]) {
+    if ([editorContext openEditorOpenSpecifier:openSpecifier] && takeFocus) {
         [editorContext takeFocus];
     }
 }
+
+// same story as -_openEditorOpenSpecifier:editorContext:takeFocus
+- (void)_openEditorHistoryItem:(id)item editorContext:(IDEEditorContext *)editorContext takeFocus:(BOOL)takeFocus
+{
+    if ([editorContext openEditorHistoryItem:item] && takeFocus) {
+        [editorContext takeFocus];
+    }
+}
+
 
 // Checking whether a component is "valid" is omnipresent in IDEKit
 - (BOOL)isValid

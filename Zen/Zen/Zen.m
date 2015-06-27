@@ -14,6 +14,7 @@
 #import "XcodeHeaders.h"
 #import "ZENIDEEditorContextConfiguration.h"
 #import "ZENEditorWrapperViewController.h"
+#import "ZENIDEEditorContextDependencyManager.h"
 
 static Zen *sharedPlugin;
 
@@ -91,7 +92,9 @@ static Zen *sharedPlugin;
     
     IDEEditorContext *editorContext = [[IDEEditorContext alloc] initWithNibName:NSStringFromClass([IDEEditorContext class]) bundle:[NSBundle bundleForClass:[IDEEditorContext class]]];
     
-    ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext workspaceDocument:workspaceController.activeWorkspaceTabController.workspaceDocument];
+    ZENIDEEditorContextDependencyManager *dependencyManager = [[ZENIDEEditorContextDependencyManager alloc] initWithWorkspaceDocument:workspaceController.activeWorkspaceTabController.workspaceDocument];
+    
+    ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext editorDependencyManager:dependencyManager];
     
     ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new]];
     

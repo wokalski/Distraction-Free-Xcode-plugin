@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C91F5DE21B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C91F5DE11B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m */; };
 		C928E9C61B33CC19003CD7D8 /* ZENWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C928E9C51B33CC19003CD7D8 /* ZENWindowController.m */; };
 		C928E9C91B34A2EE003CD7D8 /* ZENMinimalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C928E9C81B34A2EE003CD7D8 /* ZENMinimalLayout.m */; };
 		C928E9CC1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C928E9CB1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C91F5DE01B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENIDEEditorContextDependencyManager.h; sourceTree = "<group>"; };
+		C91F5DE11B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENIDEEditorContextDependencyManager.m; sourceTree = "<group>"; };
 		C928E9C41B33CC19003CD7D8 /* ZENWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENWindowController.h; sourceTree = "<group>"; };
 		C928E9C51B33CC19003CD7D8 /* ZENWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENWindowController.m; sourceTree = "<group>"; };
 		C928E9C71B34A2EE003CD7D8 /* ZENMinimalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENMinimalLayout.h; sourceTree = "<group>"; };
@@ -105,7 +108,7 @@
 				C928E9C81B34A2EE003CD7D8 /* ZENMinimalLayout.m */,
 				C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */,
 				C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */,
-				C97520BE1B38DB6B0005179E /* New Group */,
+				C97520BE1B38DB6B0005179E /* Hacksss */,
 				C92A2CA41B2F986100861B1E /* Xcode headers */,
 				C92A2C901B2F970900861B1E /* Supporting Files */,
 			);
@@ -133,17 +136,19 @@
 			name = "Xcode headers";
 			sourceTree = "<group>";
 		};
-		C97520BE1B38DB6B0005179E /* New Group */ = {
+		C97520BE1B38DB6B0005179E /* Hacksss */ = {
 			isa = PBXGroup;
 			children = (
 				C97520B81B38DB510005179E /* ZENEditorWrapperViewController.h */,
 				C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */,
+				C91F5DE01B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.h */,
+				C91F5DE11B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m */,
 				C97520BB1B38DB640005179E /* ZENEditorWrapperView.h */,
 				C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */,
 				C928E9CA1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.h */,
 				C928E9CB1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m */,
 			);
-			name = "New Group";
+			name = Hacksss;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C91F5DE21B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m in Sources */,
 				C92A2C961B2F970900861B1E /* Zen.m in Sources */,
 				C928E9C91B34A2EE003CD7D8 /* ZENMinimalLayout.m in Sources */,
 				C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */,

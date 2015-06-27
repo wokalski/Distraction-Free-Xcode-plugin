@@ -9,13 +9,18 @@
 #import <Cocoa/Cocoa.h>
 #import "IDEEditorContext.h"
 #import "XcodeHeaders.h"
-#import "ZENIDEEditorContextConfiguration.h"
+#import "ZENIDEEditorContextDependencyManager.h"
 
+// This class acts as a wrapper view controller for IDEEditorContext. It is a "proxy" when resolving editor's dependencies. Check out .m file for more insight
 @interface ZENEditorWrapperViewController : NSViewController <IDEWorkspaceDocumentProvider, IDEEditorContextDelegate>
 
-- (instancetype)initWithEditorContext:(IDEEditorContext *)editorContext workspaceDocument:(IDEWorkspaceDocument *)workspaceDocument;
+- (instancetype)initWithEditorContext:(IDEEditorContext *)editorContext editorDependencyManager:(ZENIDEEditorContextDependencyManager *)dependencyManager;
 
-@property (nonatomic, strong, readonly) IDEWorkspaceDocument *workspaceDocument;
+@property (nonatomic, strong, readonly) ZENIDEEditorContextDependencyManager *dependencyMangager;
 @property (nonatomic, strong, readonly) IDEEditorContext *editorContext;
+
+// BADTHINGSWARNING
+// Calling this method with `[IDEWorkspaceTabController class]` will also return `true`
+- (BOOL)isKindOfClass:(Class)aClass;
 
 @end

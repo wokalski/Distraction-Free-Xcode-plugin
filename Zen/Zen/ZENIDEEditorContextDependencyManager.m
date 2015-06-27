@@ -63,6 +63,12 @@
     return nil;
 }
 
+// Left Xcode pane. It is not present in our plugin's window. 
+- (id)navigatorArea
+{
+    return nil;
+}
+
 - (IDEWorkspace *)workspace
 {
     return self.workspaceDocument.workspace;

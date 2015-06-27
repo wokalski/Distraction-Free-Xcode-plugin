@@ -42,7 +42,6 @@
     }
 }
 
-
 // Checking whether a component is "valid" is omnipresent in IDEKit
 - (BOOL)isValid
 {
@@ -55,6 +54,11 @@
 }
 
 - (id)editorModeViewController
+{
+    return nil;
+}
+
+- (id)debugSessionController
 {
     return nil;
 }

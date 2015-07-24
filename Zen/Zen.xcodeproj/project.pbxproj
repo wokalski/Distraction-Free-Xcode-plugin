@@ -20,6 +20,7 @@
 		C97520BA1B38DB510005179E /* ZENEditorWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */; };
 		C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */; };
 		C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97520C21B3A2C470005179E /* IDEKit.framework */; };
+		C9E10B9D1B3F4E37004A061B /* ZENWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E10B9C1B3F4E37004A061B /* ZENWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		C97520BB1B38DB640005179E /* ZENEditorWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperView.h; sourceTree = "<group>"; };
 		C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperView.m; sourceTree = "<group>"; };
 		C97520C21B3A2C470005179E /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<group>"; };
+		C9E10B9B1B3F4E37004A061B /* ZENWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENWindow.h; sourceTree = "<group>"; };
+		C9E10B9C1B3F4E37004A061B /* ZENWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				C928E9C81B34A2EE003CD7D8 /* ZENMinimalLayout.m */,
 				C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */,
 				C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */,
+				C9E10B9B1B3F4E37004A061B /* ZENWindow.h */,
+				C9E10B9C1B3F4E37004A061B /* ZENWindow.m */,
 				C97520BE1B38DB6B0005179E /* Hacksss */,
 				C92A2CA41B2F986100861B1E /* Xcode headers */,
 				C92A2C901B2F970900861B1E /* Supporting Files */,
@@ -218,11 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91F5DE21B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m in Sources */,
 				C92A2C961B2F970900861B1E /* Zen.m in Sources */,
+				C91F5DE21B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m in Sources */,
 				C928E9C91B34A2EE003CD7D8 /* ZENMinimalLayout.m in Sources */,
 				C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */,
 				C928E9C61B33CC19003CD7D8 /* ZENWindowController.m in Sources */,
+				C9E10B9D1B3F4E37004A061B /* ZENWindow.m in Sources */,
 				C928E9CC1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m in Sources */,
 				C92A2CBF1B2FAFC600861B1E /* ZENContainerView.m in Sources */,
 				C97520BA1B38DB510005179E /* ZENEditorWrapperViewController.m in Sources */,

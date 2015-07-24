@@ -15,6 +15,7 @@
 #import "ZENIDEEditorContextConfiguration.h"
 #import "ZENEditorWrapperViewController.h"
 #import "ZENIDEEditorContextDependencyManager.h"
+#import "ZENWindow.h"
 
 static Zen *sharedPlugin;
 
@@ -80,7 +81,11 @@ static Zen *sharedPlugin;
 - (void)launch:(id)sender
 {
     self.windowController = [self makeWindowController];
-    [self.windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
+    
+    NSRect rect = [[NSScreen mainScreen] frame];
+    
+    [self.windowController.window setFrame:rect display:YES];
+    [self.windowController.window toggleFullScreen:nil];
     [self.windowController showWindow:self];
 }
 
@@ -98,9 +103,14 @@ static Zen *sharedPlugin;
     
     ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new]];
     
-    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:[NSWindow windowWithContentViewController:zenController]];
+    ZENWindow *window = [[ZENWindow alloc] initWithContentRect:zenController.view.frame styleMask:NSFullSizeContentViewWindowMask | NSClosableWindowMask backing:NSBackingStoreRetained defer:NO];
+    window.releasedWhenClosed = YES;
+    window.contentViewController = zenController;
+    [zenController.view layoutSubtreeIfNeeded];
     
-    editorContext.delegate = wrapperViewController;
+    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:window];
+    
+    windowController.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
     
     // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
     [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];

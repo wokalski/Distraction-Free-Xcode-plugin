@@ -12,7 +12,7 @@
 
 - (CGRect)editorRectInBounds:(CGRect)bounds
 {
-    return CGRectInset(bounds, CGRectGetWidth(bounds)/6, 0);
+    return CGRectInset(bounds, CGRectGetWidth(bounds)/5, 0);
 }
 
 @end

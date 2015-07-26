@@ -101,7 +101,7 @@ static Zen *sharedPlugin;
     
     ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext editorDependencyManager:dependencyManager];
     
-    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new]];
+    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new] backgroundColor:[[DVTFontAndColorTheme currentTheme] sourceTextBackgroundColor]];
     
     ZENWindow *window = [[ZENWindow alloc] initWithContentRect:zenController.view.frame styleMask:NSFullSizeContentViewWindowMask | NSClosableWindowMask backing:NSBackingStoreRetained defer:NO];
     window.releasedWhenClosed = YES;

@@ -11,13 +11,18 @@
 
 @implementation ZENViewController
 
-- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout
+- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout backgroundColor:(NSColor *)backgroundColor
 {
+    NSParameterAssert(editorViewController);
+    NSParameterAssert(layout);
+    NSParameterAssert(backgroundColor);
+    
     self = [super init];
     
     if (self) {
         _editorViewController = editorViewController;
         _layout = layout;
+        _backgroundColor = backgroundColor;
     }
 
     return self;
@@ -26,7 +31,7 @@
 - (void)loadView
 {
     ZENContainerView *view = [[ZENContainerView alloc] init];
-    view.backgroundColor = [NSColor blueColor];
+    view.backgroundColor = self.backgroundColor;
     self.view = view;
 }
 

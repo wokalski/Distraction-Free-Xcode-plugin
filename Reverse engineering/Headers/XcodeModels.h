@@ -77,3 +77,11 @@
 @protocol IDEWorkspaceDocumentProvider <NSObject>
 @property(readonly) IDEWorkspaceDocument *workspaceDocument;
 @end
+
+@interface DVTFontAndColorTheme : NSObject
+
+@property(readonly) NSColor *sourceTextBackgroundColor;
+
++ (id)currentTheme;
+
+@end

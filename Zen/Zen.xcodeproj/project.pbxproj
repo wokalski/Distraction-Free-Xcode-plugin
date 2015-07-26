@@ -17,6 +17,7 @@
 		C92A2C961B2F970900861B1E /* Zen.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2C951B2F970900861B1E /* Zen.m */; };
 		C92A2CBB1B2FAE3D00861B1E /* ZENViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */; };
 		C92A2CBF1B2FAFC600861B1E /* ZENContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */; };
+		C95728431B65288500183828 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95728421B65288500183828 /* DVTKit.framework */; };
 		C97520BA1B38DB510005179E /* ZENEditorWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */; };
 		C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */; };
 		C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97520C21B3A2C470005179E /* IDEKit.framework */; };
@@ -48,6 +49,7 @@
 		C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENViewController.m; sourceTree = "<group>"; };
 		C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENContainerView.h; sourceTree = "<group>"; };
 		C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENContainerView.m; sourceTree = "<group>"; };
+		C95728421B65288500183828 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework; sourceTree = "<group>"; };
 		C97520B81B38DB510005179E /* ZENEditorWrapperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperViewController.h; sourceTree = "<group>"; };
 		C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperViewController.m; sourceTree = "<group>"; };
 		C97520BB1B38DB640005179E /* ZENEditorWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperView.h; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				C92A2C8C1B2F970900861B1E /* AppKit.framework in Frameworks */,
 				C92A2C8E1B2F970900861B1E /* Foundation.framework in Frameworks */,
 				C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */,
+				C95728431B65288500183828 /* DVTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,7 @@
 		C92A2C8A1B2F970900861B1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C95728421B65288500183828 /* DVTKit.framework */,
 				C97520C21B3A2C470005179E /* IDEKit.framework */,
 				C92A2C8B1B2F970900861B1E /* AppKit.framework */,
 				C92A2C8D1B2F970900861B1E /* Foundation.framework */,
@@ -319,6 +323,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
 				);
 				INFOPLIST_FILE = Zen/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
@@ -337,6 +342,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
 				);
 				INFOPLIST_FILE = Zen/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";

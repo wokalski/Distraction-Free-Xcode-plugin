@@ -14,11 +14,13 @@
 
 @end
 
+
 @interface ZENViewController : NSViewController
 
-- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout;
-
+@property (nonatomic, strong, readonly) NSColor *backgroundColor;
 @property (nonatomic, strong, readonly) id<ZENEditorLayout> layout;
 @property (nonatomic, strong, readonly) NSViewController *editorViewController;
+
+- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout backgroundColor:(NSColor *)backgroundColor __attribute__((nonnull));
 
 @end

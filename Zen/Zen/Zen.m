@@ -16,6 +16,8 @@
 #import "ZENEditorWrapperViewController.h"
 #import "ZENIDEEditorContextDependencyManager.h"
 #import "ZENWindow.h"
+#import "ZENBarsController.h"
+#import "ZENAndPeace.h"
 
 static Zen *sharedPlugin;
 
@@ -101,7 +103,11 @@ static Zen *sharedPlugin;
     
     ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext editorDependencyManager:dependencyManager];
     
-    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new] backgroundColor:[[DVTFontAndColorTheme currentTheme] sourceTextBackgroundColor]];
+    ZENBarsController *barsController = [[ZENBarsController alloc] initWithEditorContext:editorContext backgroundColor:[[DVTFontAndColorTheme currentTheme] sourceTextBackgroundColor]];
+    
+    ZENAndPeace *peace = [[ZENAndPeace alloc] initWithBarsController:barsController];
+    
+    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new] backgroundColor:[[DVTFontAndColorTheme currentTheme] sourceTextBackgroundColor] interfaceController:peace];
     
     ZENWindow *window = [[ZENWindow alloc] initWithContentRect:zenController.view.frame styleMask:NSFullSizeContentViewWindowMask | NSClosableWindowMask backing:NSBackingStoreRetained defer:NO];
     window.releasedWhenClosed = YES;
@@ -114,7 +120,7 @@ static Zen *sharedPlugin;
     
     // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
     [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];
-
+    
     return windowController;
 }
 

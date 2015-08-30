@@ -38,13 +38,19 @@
 @interface IDESourceCodeDocument : IDEEditorDocument
 @end
 
-@interface IDESourceCodeEditor : IDEEditor
+@interface IDESourceCodeEditor : IDEEditor {
+    DVTTextSidebarView *_sidebarView;
+}
+
 @property(readonly) IDESourceCodeDocument *sourceCodeDocument;
 @property(retain) DVTSourceTextView *textView;
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle document:(IDESourceCodeDocument *)document;
+
 - (void)jumpToDefinitionWithShiftPlusAlternate:(id)arg1;
 - (void)jumpToDefinitionWithAlternate:(id)arg1;
 - (void)jumpToDefinition:(id)arg1;
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle document:(IDESourceCodeDocument *)document;
+
 @end
 
 @interface IDEComparisonEditor : IDEEditor

@@ -8,14 +8,16 @@
 
 #import "ZENViewController.h"
 #import "ZENContainerView.h"
+#import "ZENMouseInteractionView.h"
 
 @implementation ZENViewController
 
-- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout backgroundColor:(NSColor *)backgroundColor
+- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout backgroundColor:(NSColor *)backgroundColor interfaceController:(id<ZENInterfaceController>)interfaceController __attribute__((nonnull));
 {
     NSParameterAssert(editorViewController);
     NSParameterAssert(layout);
     NSParameterAssert(backgroundColor);
+    NSParameterAssert(interfaceController);
     
     self = [super init];
     
@@ -23,6 +25,7 @@
         _editorViewController = editorViewController;
         _layout = layout;
         _backgroundColor = backgroundColor;
+        _interfaceController = interfaceController;
     }
 
     return self;
@@ -30,22 +33,27 @@
 
 - (void)loadView
 {
+    ZENMouseInteractionView *interactionView = [[ZENMouseInteractionView alloc] initWithInterfaceController:self.interfaceController];
     ZENContainerView *view = [[ZENContainerView alloc] init];
     view.backgroundColor = self.backgroundColor;
-    self.view = view;
+    view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    
+    [interactionView addSubview:view];
+    
+    self.view = interactionView;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    [self addChildViewController:self.editorViewController];
     [self.view addSubview:self.editorViewController.view];
 }
 
 - (void)viewWillLayout
 {
     [super viewWillLayout];
-    
     [self performLayout];
 }
 

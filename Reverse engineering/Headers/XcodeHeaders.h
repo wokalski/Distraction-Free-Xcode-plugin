@@ -11,7 +11,3 @@
 #import "XcodeViews.h"
 #import "XcodeViewControllers.h"
 #import "IDEEditorContext.h"
-
-@protocol IDEWorkspaceDocumentProvider <NSObject>
-@property(readonly) IDEWorkspaceDocument *workspaceDocument;
-@end

@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ZENInterfaceController.h"
 
 @protocol ZENEditorLayout <NSObject>
 
@@ -20,7 +21,8 @@
 @property (nonatomic, strong, readonly) NSColor *backgroundColor;
 @property (nonatomic, strong, readonly) id<ZENEditorLayout> layout;
 @property (nonatomic, strong, readonly) NSViewController *editorViewController;
+@property (nonatomic, strong, readonly) id<ZENInterfaceController> interfaceController;
 
-- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout backgroundColor:(NSColor *)backgroundColor __attribute__((nonnull));
+- (instancetype)initWithEditorViewController:(NSViewController *)editorViewController layout:(id<ZENEditorLayout>)layout backgroundColor:(NSColor *)backgroundColor interfaceController:(id<ZENInterfaceController>)interfaceController __attribute__((nonnull));
 
 @end

@@ -13,3 +13,15 @@
 
 @interface DVTSourceTextView : DVTCompletingTextView
 @end
+
+@interface DVTLayoutView_ML : NSView
+@end
+
+@interface IDESourceCodeEditorContainerView : DVTLayoutView_ML
+@end
+
+@interface DVTTextSidebarView : NSRulerView
+@end
+
+@interface IDENavBar : DVTLayoutView_ML
+@end

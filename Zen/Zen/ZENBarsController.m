@@ -36,51 +36,72 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    self.maskView.frame = self.editorContext.sidebarView.frame;
+    if ([keyPath isEqualTo:ZENWindowKeypath()]) {
+        NSView *view = object;
+        if (view.window == nil) {
+            [view removeObserver:self forKeyPath:ZENWindowKeypath()];
+            [view removeObserver:self forKeyPath:ZENFrameKeypath()];
+        }
+    } else {
+        self.maskView.frame = self.editorContext.sidebarView.frame ;
+    }
 }
 
 - (void)hideBars
 {
     DVTTextSidebarView *sidebarView = self.editorContext.sidebarView;
     
-    [self.maskView removeFromSuperview];
-    self.maskView = [self maskViewForSidebar:sidebarView];
-    [sidebarView.superview addSubview:self.maskView];
+    [sidebarView addObserver:self forKeyPath:ZENFrameKeypath() options:0 context:NULL];
+    [sidebarView addObserver:self forKeyPath:ZENWindowKeypath() options:0 context:NULL];
     
-    [sidebarView addObserver:self forKeyPath:[self boundsKeyPath] options:0 context:NULL];
+    ZENContainerView *maskView = [self maskViewForSidebar:sidebarView];
+    maskView.frame = sidebarView.frame;
+    [sidebarView.superview addSubview:maskView];
+    self.maskView = maskView;
     
-    CGRect editorBounds = self.editorContext.view.bounds;
-    
-    IDESourceCodeEditor *editor = self.editorContext.editor;
-    NSSize inset = editor.textView.textContainerInset;
-    inset.height += self.editorContext.navBar.frame.size.height;
-    editor.textView.textContainerInset = inset;
-    
-    self.editorContext.editor.view.superview.frame = editorBounds;
-    self.editorContext.editor.view.frame = editorBounds;
-    
-    self.editorContext.navBar.alphaValue = 0.f;
+    [self adjustEditorToFrame:self.editorContext.view.frame];
+    self.editorContext.navBar.hidden = YES;
 }
 
 - (void)showBars
 {
-    CGFloat targetAlpha = 1.f;
+    [self.maskView removeFromSuperview];
+    self.maskView = nil;
     
-    CGRect editorBounds = self.editorContext.view.frame;
     CGFloat navBarHeight = self.editorContext.navBar.frame.size.height;
-    
+    CGRect editorBounds = self.editorContext.view.frame;
     editorBounds.size.height -= navBarHeight;
     
-    IDESourceCodeEditor *editor = self.editorContext.editor;
-    NSSize inset = editor.textView.textContainerInset;
-    inset.height -= self.editorContext.navBar.alphaValue == 0 ? self.editorContext.navBar.frame.size.height : 01 ;
-    editor.textView.textContainerInset = inset;
+    [self adjustEditorToFrame:editorBounds];
+    self.editorContext.navBar.hidden = NO;
+}
+
+- (void)adjustEditorToFrame:(CGRect)frame
+{
+    NSView *editorView = self.editorContext.editor.view;
+    NSTextView *textView = [self textViewInEditor:self.editorContext.editor];
+    CGFloat verticalScrollPositionDelta = -(CGRectGetHeight(frame) - CGRectGetHeight(editorView.frame));
     
-    self.editorContext.editor.view.superview.frame = editorBounds;
-    self.editorContext.editor.view.frame = editorBounds;
+    NSScrollView *enclosingScrollView = [textView enclosingScrollView];
+    NSClipView *clipView = [enclosingScrollView contentView];
     
-    self.editorContext.navBar.alphaValue = targetAlpha;
-    [self.maskView removeFromSuperview];
+    editorView.superview.frame = frame;
+    editorView.frame = frame;
+    
+    NSPoint scrollPosition = [clipView documentVisibleRect].origin;
+    
+    scrollPosition.y += verticalScrollPositionDelta;
+    
+    [clipView scrollToPoint:scrollPosition];
+    [enclosingScrollView reflectScrolledClipView:clipView];
+}
+
+- (NSTextView *)textViewInEditor:(IDEEditor *)editor
+{
+    if ([editor isKindOfClass:NSClassFromString(@"IDESourceCodeEditor")]) {
+        return [(IDESourceCodeEditor *)editor textView];
+    }
+    return nil;
 }
 
 - (ZENContainerView *)maskViewForSidebar:(DVTTextSidebarView *)sidebarView
@@ -90,6 +111,8 @@
     containerView.backgroundColor = self.backgroundColor;
     return containerView;
 }
+
+#pragma mark -
 
 + (void)load
 {
@@ -119,14 +142,14 @@
 
 #pragma mark - KVO
 
-- (void)dealloc
-{
-    [self.editorContext.sidebarView removeObserver:self forKeyPath:[self boundsKeyPath]];
-}
-
-- (NSString *)boundsKeyPath
+static inline NSString *ZENFrameKeypath()
 {
     return NSStringFromSelector(@selector(frame));
+}
+
+static inline NSString *ZENWindowKeypath()
+{
+    return NSStringFromSelector(@selector(window));
 }
 
 @end

@@ -12,7 +12,7 @@
 @class IDELaunchSession;
 
 // This class is provides false SOC. ZENEditorWrapperViewController depends on a class with this type so it's not about flexibility. It's about having smaller classes, it's easier for me to think about this class as a module which provides dependencies for IDEEditorContext.
-// IDEEditorContext depends heavily on `IDEWorkspaceTabController`. This class provides IDEEditorContext with the same dependencies as `IDEWorkspaceTabController`.
+// IDEEditorContext depends heavily on `IDEWorkspaceTabController`. This class provides IDEEditorContext with the same dependencies as `IDEWorkspaceTabController`. They are usually stubs or nils.
 // Rationale behind creating ZEN's own class instead of using `IDEWorkspaceTabController` is better control. We can hopefully see and fix what's wrong.
 
 // The header file is limited to methods which have to be public.

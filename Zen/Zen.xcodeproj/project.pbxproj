@@ -17,9 +17,15 @@
 		C92A2C961B2F970900861B1E /* Zen.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2C951B2F970900861B1E /* Zen.m */; };
 		C92A2CBB1B2FAE3D00861B1E /* ZENViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */; };
 		C92A2CBF1B2FAFC600861B1E /* ZENContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */; };
+		C95728431B65288500183828 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95728421B65288500183828 /* DVTKit.framework */; };
 		C97520BA1B38DB510005179E /* ZENEditorWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */; };
 		C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */; };
 		C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97520C21B3A2C470005179E /* IDEKit.framework */; };
+		C9A72DDA1B676A0500801B50 /* ZENBarsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DD91B676A0500801B50 /* ZENBarsController.m */; };
+		C9A72DDD1B676EF900801B50 /* ZENEventScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DDC1B676EF900801B50 /* ZENEventScheduler.m */; };
+		C9A72DE31B67943500801B50 /* ZENMouseInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DE21B67943500801B50 /* ZENMouseInteractionView.m */; };
+		C9A72DF91B70D75500801B50 /* ZENAndPeace.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DF81B70D75500801B50 /* ZENAndPeace.m */; };
+		C9E10B9D1B3F4E37004A061B /* ZENWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E10B9C1B3F4E37004A061B /* ZENWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,11 +53,23 @@
 		C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENViewController.m; sourceTree = "<group>"; };
 		C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENContainerView.h; sourceTree = "<group>"; };
 		C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENContainerView.m; sourceTree = "<group>"; };
+		C95728421B65288500183828 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework; sourceTree = "<group>"; };
 		C97520B81B38DB510005179E /* ZENEditorWrapperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperViewController.h; sourceTree = "<group>"; };
 		C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperViewController.m; sourceTree = "<group>"; };
 		C97520BB1B38DB640005179E /* ZENEditorWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperView.h; sourceTree = "<group>"; };
 		C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperView.m; sourceTree = "<group>"; };
 		C97520C21B3A2C470005179E /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<group>"; };
+		C9A72DD71B66479E00801B50 /* ZENInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENInterfaceController.h; sourceTree = "<group>"; };
+		C9A72DD81B676A0500801B50 /* ZENBarsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENBarsController.h; sourceTree = "<group>"; };
+		C9A72DD91B676A0500801B50 /* ZENBarsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENBarsController.m; sourceTree = "<group>"; };
+		C9A72DDB1B676EF900801B50 /* ZENEventScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEventScheduler.h; sourceTree = "<group>"; };
+		C9A72DDC1B676EF900801B50 /* ZENEventScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEventScheduler.m; sourceTree = "<group>"; };
+		C9A72DE11B67943500801B50 /* ZENMouseInteractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENMouseInteractionView.h; sourceTree = "<group>"; };
+		C9A72DE21B67943500801B50 /* ZENMouseInteractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENMouseInteractionView.m; sourceTree = "<group>"; };
+		C9A72DF71B70D75500801B50 /* ZENAndPeace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENAndPeace.h; sourceTree = "<group>"; };
+		C9A72DF81B70D75500801B50 /* ZENAndPeace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENAndPeace.m; sourceTree = "<group>"; };
+		C9E10B9B1B3F4E37004A061B /* ZENWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENWindow.h; sourceTree = "<group>"; };
+		C9E10B9C1B3F4E37004A061B /* ZENWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +80,7 @@
 				C92A2C8C1B2F970900861B1E /* AppKit.framework in Frameworks */,
 				C92A2C8E1B2F970900861B1E /* Foundation.framework in Frameworks */,
 				C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */,
+				C95728431B65288500183828 /* DVTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +107,7 @@
 		C92A2C8A1B2F970900861B1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C95728421B65288500183828 /* DVTKit.framework */,
 				C97520C21B3A2C470005179E /* IDEKit.framework */,
 				C92A2C8B1B2F970900861B1E /* AppKit.framework */,
 				C92A2C8D1B2F970900861B1E /* Foundation.framework */,
@@ -106,8 +126,17 @@
 				C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */,
 				C928E9C71B34A2EE003CD7D8 /* ZENMinimalLayout.h */,
 				C928E9C81B34A2EE003CD7D8 /* ZENMinimalLayout.m */,
+				C9A72DE11B67943500801B50 /* ZENMouseInteractionView.h */,
+				C9A72DE21B67943500801B50 /* ZENMouseInteractionView.m */,
 				C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */,
 				C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */,
+				C9E10B9B1B3F4E37004A061B /* ZENWindow.h */,
+				C9E10B9C1B3F4E37004A061B /* ZENWindow.m */,
+				C9A72DDB1B676EF900801B50 /* ZENEventScheduler.h */,
+				C9A72DDC1B676EF900801B50 /* ZENEventScheduler.m */,
+				C9A72DD71B66479E00801B50 /* ZENInterfaceController.h */,
+				C9A72DF71B70D75500801B50 /* ZENAndPeace.h */,
+				C9A72DF81B70D75500801B50 /* ZENAndPeace.m */,
 				C97520BE1B38DB6B0005179E /* Hacksss */,
 				C92A2CA41B2F986100861B1E /* Xcode headers */,
 				C92A2C901B2F970900861B1E /* Supporting Files */,
@@ -147,6 +176,8 @@
 				C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */,
 				C928E9CA1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.h */,
 				C928E9CB1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m */,
+				C9A72DD81B676A0500801B50 /* ZENBarsController.h */,
+				C9A72DD91B676A0500801B50 /* ZENBarsController.m */,
 			);
 			name = Hacksss;
 			sourceTree = "<group>";
@@ -218,12 +249,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C91F5DE21B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m in Sources */,
+				C9A72DDD1B676EF900801B50 /* ZENEventScheduler.m in Sources */,
+				C9A72DDA1B676A0500801B50 /* ZENBarsController.m in Sources */,
 				C92A2C961B2F970900861B1E /* Zen.m in Sources */,
+				C91F5DE21B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m in Sources */,
 				C928E9C91B34A2EE003CD7D8 /* ZENMinimalLayout.m in Sources */,
 				C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */,
 				C928E9C61B33CC19003CD7D8 /* ZENWindowController.m in Sources */,
+				C9E10B9D1B3F4E37004A061B /* ZENWindow.m in Sources */,
+				C9A72DE31B67943500801B50 /* ZENMouseInteractionView.m in Sources */,
 				C928E9CC1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m in Sources */,
+				C9A72DF91B70D75500801B50 /* ZENAndPeace.m in Sources */,
 				C92A2CBF1B2FAFC600861B1E /* ZENContainerView.m in Sources */,
 				C97520BA1B38DB510005179E /* ZENEditorWrapperViewController.m in Sources */,
 				C92A2CBB1B2FAE3D00861B1E /* ZENViewController.m in Sources */,
@@ -313,6 +349,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
 				);
 				INFOPLIST_FILE = Zen/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
@@ -331,6 +368,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
 				);
 				INFOPLIST_FILE = Zen/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";

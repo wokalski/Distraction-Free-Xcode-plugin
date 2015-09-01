@@ -28,7 +28,10 @@
 - (IDEWorkspace *)workspaceForEditorContext:(IDEEditorContext *)editorContext;
 @end
 
-@interface IDEEditorContext : IDEViewController
+@interface IDEEditorContext : IDEViewController {
+    IDENavBar *_navBar;
+}
+
 @property(retain, nonatomic, readonly) NSURL *originalRequestedDocumentURL;
 @property(readonly, nonatomic) IDEEditor *editor;
 @property(retain, nonatomic, readonly) IDEEditorArea *editorArea;

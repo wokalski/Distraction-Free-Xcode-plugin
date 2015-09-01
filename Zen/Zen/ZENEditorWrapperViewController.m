@@ -33,8 +33,7 @@
     [super viewDidLoad];
     
     [self addChildViewController:self.editorContext];
-    [self.view addSubview:self.editorContext
-     .view];
+    [self.view addSubview:self.editorContext.view];
     
     self.editorContext.view.frame = self.view.bounds;
     self.editorContext.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;

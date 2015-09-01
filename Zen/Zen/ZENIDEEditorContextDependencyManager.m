@@ -74,6 +74,11 @@
     return self.workspaceDocument.workspace;
 }
 
+- (BOOL)userWantsBreakpointsActivated
+{
+    return NO;
+}
+
 #pragma mark -
 
 // Returning self here as those are some nested IDEEditorContext's dependencies accessed through `IDEWorkspaceTabController`

@@ -15,6 +15,9 @@
 #import "ZENIDEEditorContextConfiguration.h"
 #import "ZENEditorWrapperViewController.h"
 #import "ZENIDEEditorContextDependencyManager.h"
+#import "ZENWindow.h"
+#import "ZENBarsController.h"
+#import "ZENAndPeace.h"
 
 static Zen *sharedPlugin;
 
@@ -80,7 +83,11 @@ static Zen *sharedPlugin;
 - (void)launch:(id)sender
 {
     self.windowController = [self makeWindowController];
-    [self.windowController.window setFrame:NSMakeRect(0, 0, 500, 500) display:NO];
+    
+    NSRect rect = [[NSScreen mainScreen] frame];
+    
+    [self.windowController.window setFrame:rect display:YES];
+    [self.windowController.window toggleFullScreen:nil];
     [self.windowController showWindow:self];
 }
 
@@ -96,14 +103,26 @@ static Zen *sharedPlugin;
     
     ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext editorDependencyManager:dependencyManager];
     
-    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new]];
+    ZENBarsController *barsController = [[ZENBarsController alloc] initWithEditorContext:editorContext backgroundColor:[[DVTFontAndColorTheme currentTheme] sourceTextBackgroundColor]];
     
-    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:[NSWindow windowWithContentViewController:zenController]];
+    ZENAndPeace *peace = [[ZENAndPeace alloc] initWithBarsController:barsController];
     
-    editorContext.delegate = wrapperViewController;
+    ZENViewController *zenController = [[ZENViewController alloc] initWithEditorViewController:wrapperViewController layout:[ZENMinimalLayout new] backgroundColor:[[DVTFontAndColorTheme currentTheme] sourceTextBackgroundColor] interfaceController:peace];
+    
+    ZENWindow *window = [[ZENWindow alloc] initWithContentRect:zenController.view.frame styleMask:NSFullSizeContentViewWindowMask | NSClosableWindowMask backing:NSBackingStoreRetained defer:NO];
+    window.releasedWhenClosed = YES;
+    window.contentViewController = zenController;
+    [zenController.view layoutSubtreeIfNeeded];
+    
+    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:window];
+    
+    windowController.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
     
     // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
     [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];
+    
+// FIXME: This call should belong to appearance specific section of the code. Due to many upcoming changes in the appearance it's going to be moved somewhere else.
+    [[[barsController textViewInEditor:editorContext.editor] enclosingScrollView] setScrollerStyle:NSScrollerStyleOverlay];
 
     return windowController;
 }

@@ -49,51 +49,93 @@
 
 - (void)hideBars
 {
+    IDENavBar *navBar = self.editorContext.navBar;
+    NSView *snapshotView = [self snapshotOfView:navBar];
+    
+    [self.editorContext.navBar.superview addSubview:snapshotView];
+    
     DVTTextSidebarView *sidebarView = self.editorContext.sidebarView;
     
     [sidebarView addObserver:self forKeyPath:ZENFrameKeypath() options:0 context:NULL];
     [sidebarView addObserver:self forKeyPath:ZENWindowKeypath() options:0 context:NULL];
     
     ZENContainerView *maskView = [self maskViewForSidebar:sidebarView];
+    maskView.alphaValue = 0.f;
     maskView.frame = sidebarView.frame;
     [sidebarView.superview addSubview:maskView];
     self.maskView = maskView;
     
     [self adjustEditorToFrame:self.editorContext.view.frame];
-    self.editorContext.navBar.hidden = YES;
+    
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+        context.duration = .3;
+        snapshotView.animator.alphaValue = 0;
+        maskView.animator.alphaValue = 1;
+    } completionHandler:^{
+        self.editorContext.navBar.hidden = YES;
+        [snapshotView removeFromSuperview];
+    }];
 }
 
 - (void)showBars
 {
-    [self.maskView removeFromSuperview];
-    self.maskView = nil;
+    IDENavBar *navBar = self.editorContext.navBar;
+    NSView *snapshotView;
+
     
-    CGFloat navBarHeight = self.editorContext.navBar.frame.size.height;
-    CGRect editorBounds = self.editorContext.view.frame;
-    editorBounds.size.height -= navBarHeight;
+    if (navBar.hidden == YES) {
+        snapshotView = [self snapshotOfView:navBar];
     
-    [self adjustEditorToFrame:editorBounds];
-    self.editorContext.navBar.hidden = NO;
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+            context.duration = 0.3;
+            [self.maskView.animator removeFromSuperview];
+            self.maskView = nil;
+            [self.editorContext.view.superview.animator addSubview:snapshotView];
+        
+        } completionHandler:^{
+            CGFloat navBarHeight = self.editorContext.navBar.frame.size.height;
+            CGRect editorBounds = self.editorContext.view.frame;
+            editorBounds.size.height -= navBarHeight;
+            
+            [self adjustEditorToFrame:editorBounds];
+            navBar.hidden = NO;
+            [snapshotView removeFromSuperview];
+        
+        }];
+    }
 }
 
 - (void)adjustEditorToFrame:(CGRect)frame
 {
     NSView *editorView = self.editorContext.editor.view;
     NSTextView *textView = [self textViewInEditor:self.editorContext.editor];
+    
     CGFloat verticalScrollPositionDelta = -(CGRectGetHeight(frame) - CGRectGetHeight(editorView.frame));
     
-    NSScrollView *enclosingScrollView = [textView enclosingScrollView];
-    NSClipView *clipView = [enclosingScrollView contentView];
+    [self adjustYScrollPositionInScrollView:textView.enclosingScrollView byYDelta:verticalScrollPositionDelta];
     
     editorView.superview.frame = frame;
     editorView.frame = frame;
+}
+
+- (NSView *)snapshotOfView:(NSView *)view
+{
+    NSImage *image = [[NSImage alloc] initWithData:[view dataWithPDFInsideRect:view.bounds]];
+    NSImageView *imageView = [[NSImageView alloc] initWithFrame:view.frame];
+    imageView.image = image;
+    return imageView;
+}
+
+- (void)adjustYScrollPositionInScrollView:(NSScrollView *)scrollView byYDelta:(CGFloat)value
+{
+    NSClipView *clipView = [scrollView contentView];
     
     NSPoint scrollPosition = [clipView documentVisibleRect].origin;
     
-    scrollPosition.y += verticalScrollPositionDelta;
+    scrollPosition.y += value;
     
     [clipView scrollToPoint:scrollPosition];
-    [enclosingScrollView reflectScrolledClipView:clipView];
+    [scrollView reflectScrolledClipView:clipView];
 }
 
 - (NSTextView *)textViewInEditor:(IDEEditor *)editor

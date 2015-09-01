@@ -121,6 +121,9 @@ static Zen *sharedPlugin;
     // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
     [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];
     
+// FIXME: This call should belong to appearance specific section of the code. Due to many upcoming changes in the appearance it's going to be moved somewhere else.
+    [[[barsController textViewInEditor:editorContext.editor] enclosingScrollView] setScrollerStyle:NSScrollerStyleOverlay];
+
     return windowController;
 }
 

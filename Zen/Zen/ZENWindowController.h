@@ -7,7 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ZENIDEEditorContextDependencyManager.h"
 
 @interface ZENWindowController : NSWindowController
+
+/**
+ * This property just exists to make Open Quickly dialog work with Zen. All unrecognized selectors received by the window are forwarded to the dependency manager.
+*/
+
+@property (nonatomic, strong) ZENIDEEditorContextDependencyManager *dependencyManager;
+
+- (instancetype)initWithWindow:(NSWindow *)window dependencyManager:(ZENIDEEditorContextDependencyManager *)dependencyManager;
 
 @end

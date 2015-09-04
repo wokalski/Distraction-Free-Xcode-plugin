@@ -12,12 +12,13 @@
 
 @implementation ZENIDEEditorContextDependencyManager
 
-- (instancetype)initWithWorkspaceDocument:(IDEWorkspaceDocument *)workspaceDocument
+- (instancetype)initWithWorkspaceDocument:(IDEWorkspaceDocument *)workspaceDocument editorContext:(IDEEditorContext *)editorContext
 {
     self = [super init];
     
     if (self) {
         _workspaceDocument = workspaceDocument;
+        _editorContext = editorContext;
     }
     return self;
 }
@@ -91,6 +92,23 @@
 - (id)editorArea
 {
     return self;
+}
+
+#pragma mark - Open Quickly
+
+- (id)activeWorkspaceTabController //forwarded from ZENWindowController
+{
+    return self;
+}
+
+- (id)currentDebuggingAdditionUIControllers
+{
+    return nil;
+}
+
+- (id)primaryEditorContext
+{
+    return self.editorContext;
 }
 
 @end

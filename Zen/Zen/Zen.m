@@ -99,7 +99,7 @@ static Zen *sharedPlugin;
     
     IDEEditorContext *editorContext = [[IDEEditorContext alloc] initWithNibName:NSStringFromClass([IDEEditorContext class]) bundle:[NSBundle bundleForClass:[IDEEditorContext class]]];
     
-    ZENIDEEditorContextDependencyManager *dependencyManager = [[ZENIDEEditorContextDependencyManager alloc] initWithWorkspaceDocument:workspaceController.activeWorkspaceTabController.workspaceDocument];
+    ZENIDEEditorContextDependencyManager *dependencyManager = [[ZENIDEEditorContextDependencyManager alloc] initWithWorkspaceDocument:workspaceController.activeWorkspaceTabController.workspaceDocument editorContext:editorContext];
     
     ZENEditorWrapperViewController *wrapperViewController = [[ZENEditorWrapperViewController alloc] initWithEditorContext:editorContext editorDependencyManager:dependencyManager];
     
@@ -114,7 +114,7 @@ static Zen *sharedPlugin;
     window.contentViewController = zenController;
     [zenController.view layoutSubtreeIfNeeded];
     
-    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:window];
+    NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:window dependencyManager:dependencyManager];
     
     windowController.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
     

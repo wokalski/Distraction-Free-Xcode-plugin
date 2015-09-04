@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ZENIDEEditorContextDependencyManager.h"
 
 @interface ZENWindow : NSWindow
-
 @end

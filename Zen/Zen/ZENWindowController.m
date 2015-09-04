@@ -8,11 +8,25 @@
 
 #import "ZENWindowController.h"
 
-/*  This class is only needed to support view resizing. It can be done in numerous ways, but surprisingly none of them is clean - i.e. doesn't involve view controller knowing that it's window is the contentView, or doesn't include bubbling up an event using a delegate from the view.
-    The other way would be to use auto layout for everything but it would be an unneccessary overhead IMO.
-*/
-
 @implementation ZENWindowController
+
+- (instancetype)initWithWindow:(NSWindow *)window dependencyManager:(ZENIDEEditorContextDependencyManager *)dependencyManager
+{
+    self = [super initWithWindow:window];
+    if (self) {
+        _dependencyManager = dependencyManager;
+    }
+    return self;
+}
+
+#pragma mark - Open Quickly
+
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+    return self.dependencyManager;
+}
+
+#pragma mark - Layout
 
 - (void)setWindow:(NSWindow *)window
 {

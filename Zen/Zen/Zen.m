@@ -80,6 +80,13 @@ static Zen *sharedPlugin;
     return actionMenuItem;
 }
 
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{
+    IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
+    Class editorClass = [[[[[workspaceController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] class];
+    return [editorClass isSubclassOfClass:NSClassFromString(@"IDESourceCodeEditor")];
+}
+
 - (void)launch:(id)sender
 {
     self.windowController = [self makeWindowController];

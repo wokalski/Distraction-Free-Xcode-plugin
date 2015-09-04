@@ -68,14 +68,14 @@ static Zen *sharedPlugin;
     // Sample Menu Item:
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"View"];
     if (menuItem) {
-        [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
         [[menuItem submenu] addItem:[self ZEN_menuItem]];
     }
 }
 
 - (NSMenuItem *)ZEN_menuItem
 {
-    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"GO ZEN" action:@selector(launch:) keyEquivalent:@""];
+    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:@selector(launch:) keyEquivalent:@"F"];
+    [actionMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask | NSShiftKeyMask];
     [actionMenuItem setTarget:self];
     return actionMenuItem;
 }

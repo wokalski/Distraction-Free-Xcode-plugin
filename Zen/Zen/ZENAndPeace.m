@@ -23,8 +23,13 @@
 
 - (void)mouseMoved:(NSEvent *)event
 {
-    [self.barsController showBars];
-    [self.eventScheduler scheduleAfter:1.5f];
+    NSView *editorContextView = self.barsController.editorContext.view;
+    CGRect frameInWindow = [self.barsController.editorContext.view convertRect:editorContextView.bounds toView:nil];
+    
+    if (CGRectContainsPoint(frameInWindow, event.locationInWindow) == NO) {
+        [self.barsController showBars];
+        [self.eventScheduler scheduleAfter:1.5f];
+    }
 }
 
 @end

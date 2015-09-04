@@ -7,8 +7,23 @@
 //
 
 #import "ZENWindow.h"
+#import "XcodeViewControllers.h"
+@import ObjectiveC;
 
 @implementation ZENWindow
+
+- (void)becomeMainWindow
+{
+    [super becomeMainWindow];
+    
+    void (*becomeMainWindowFunc)(id s, SEL selector) = (void *)class_getMethodImplementation([IDEWorkspaceWindow class], @selector(becomeMainWindow));
+    becomeMainWindowFunc(self, @selector(becomeMainWindow));
+}
+
+- (BOOL)canBecomeMainWindow
+{
+    return YES;
+}
 
 - (void)toggleFullScreen:(id)sender
 {

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "890A4B3E171F031300AFE577"
+               BlueprintIdentifier = "C92A2C871B2F970900861B1E"
                BuildableName = "Zen.xcplugin"
                BlueprintName = "Zen"
                ReferencedContainer = "container:Zen.xcodeproj">
@@ -56,12 +56,14 @@
       allowLocationSimulation = "NO"
       viewDebuggingEnabled = "No">
       <PathRunnable
-         FilePath = "/Applications/Xcode.app">
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.dt.Xcode"
+         FilePath = "/Applications/Xcode-beta.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "890A4B3E171F031300AFE577"
+            BlueprintIdentifier = "C92A2C871B2F970900861B1E"
             BuildableName = "Zen.xcplugin"
             BlueprintName = "Zen"
             ReferencedContainer = "container:Zen.xcodeproj">

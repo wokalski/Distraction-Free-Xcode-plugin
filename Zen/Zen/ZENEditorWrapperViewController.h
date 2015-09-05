@@ -12,7 +12,7 @@
 #import "ZENIDEEditorContextDependencyManager.h"
 
 // This class acts as a wrapper view controller for IDEEditorContext. It is a "proxy" when resolving editor's dependencies. Check out .m file for more insight
-@interface ZENEditorWrapperViewController : NSViewController <IDEWorkspaceDocumentProvider>
+@interface ZENEditorWrapperViewController : NSViewController <IDEWorkspaceDocumentProvider, DVTInvalidation>
 
 - (instancetype)initWithEditorContext:(IDEEditorContext *)editorContext editorDependencyManager:(ZENIDEEditorContextDependencyManager *)dependencyManager;
 

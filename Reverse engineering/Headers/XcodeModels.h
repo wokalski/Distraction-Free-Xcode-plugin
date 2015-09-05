@@ -57,7 +57,16 @@
 @interface IDENavigableItemArchivableRepresentation : NSObject
 @end
 
+@interface DVTFileDataType : NSObject
+@property (readonly) NSString *displayName;
++ (id)fileDataTypeWithIdentifier:(id)arg1;
++ (id)fileDataTypeForFilePath:(id)arg1 error:(id *)arg2;
+- (BOOL)conformsToType:(DVTFileDataType *)type;
+@end
+
+
 @interface IDEEditorOpenSpecifier : NSObject
+@property (readonly) DVTFileDataType *fileDataType;
 + (instancetype)structureEditorOpenSpecifierForDocumentLocation:(DVTDocumentLocation *)documentLocation inWorkspace:(IDEWorkspace *)workspace error:(NSError **)error;
 - (instancetype)initWithNavigableItem:(IDENavigableItem *)navigableItem error:(NSError **)error;
 // debugging
@@ -72,6 +81,7 @@
 @end
 
 @interface IDEEditorDocument : NSDocument
+@property DVTFilePath *filePath;
 @end
 
 @protocol IDEWorkspaceDocumentProvider <NSObject>

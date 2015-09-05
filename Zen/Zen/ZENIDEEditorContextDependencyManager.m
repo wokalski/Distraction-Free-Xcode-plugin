@@ -9,6 +9,11 @@
 #import "ZENIDEEditorContextDependencyManager.h"
 #import "XcodeHeaders.h"
 
+BOOL ZENFileDataTypeIsValid(DVTFileDataType *fileType) {
+    NSString *sourceIdentifier = @"public.source-code";
+    DVTFileDataType *sourceDataType = [DVTFileDataType fileDataTypeWithIdentifier:sourceIdentifier];
+    return [fileType conformsToType:sourceDataType];
+}
 
 @implementation ZENIDEEditorContextDependencyManager
 
@@ -30,9 +35,31 @@
 
 - (void)_openEditorOpenSpecifier:(IDEEditorOpenSpecifier *)openSpecifier editorContext:(IDEEditorContext *)editorContext takeFocus:(BOOL)takeFocus
 {
+    if ([self openSpecifierIsValid:openSpecifier] == NO) {
+        [[self cannotOpenFileAlert:openSpecifier] runModal];
+        return;
+    }
+    
+    
     if ([editorContext openEditorOpenSpecifier:openSpecifier] && takeFocus) {
         [editorContext takeFocus];
     }
+}
+
+- (NSAlert *)cannotOpenFileAlert:(IDEEditorOpenSpecifier *)openSpecifier
+{
+    NSString *fileType = [[openSpecifier fileDataType] displayName];
+    NSString *localizedDescription = [NSString stringWithFormat:@"Cannot open %@.", fileType];
+    NSString *failureDescription = @"Files with this type are not supported by ZEN";
+    
+    return [NSAlert alertWithError:[NSError errorWithDomain:@"ZENErrorDomain" code:1 userInfo:@{
+                                                                                                NSLocalizedDescriptionKey : localizedDescription, NSLocalizedRecoverySuggestionErrorKey : failureDescription,
+                                                                                                NSLocalizedRecoveryOptionsErrorKey : @[@"OK"]}]];
+}
+
+- (BOOL)openSpecifierIsValid:(IDEEditorOpenSpecifier *)openSpecifier
+{
+    return ZENFileDataTypeIsValid([openSpecifier fileDataType]);
 }
 
 // same story as -_openEditorOpenSpecifier:editorContext:takeFocus
@@ -107,6 +134,33 @@
 }
 
 - (id)primaryEditorContext
+{
+    return self.editorContext;
+}
+
+- (BOOL)isKindOfClass:(Class)aClass
+{
+    return [super isKindOfClass:aClass] || [aClass isSubclassOfClass:[IDEWorkspaceTabController class]];
+}
+
+- (id)inspectorArea
+{
+    return nil;
+}
+
+- (id)libraryArea
+{
+    return nil;
+}
+
+#pragma mark - 
+
+- (NSArray *)workspaceTabControllers
+{
+    return @[self];
+}
+
+- (id)lastActiveEditorContext
 {
     return self.editorContext;
 }

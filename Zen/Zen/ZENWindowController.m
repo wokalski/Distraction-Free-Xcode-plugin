@@ -7,6 +7,7 @@
 //
 
 #import "ZENWindowController.h"
+#import "XcodeViewControllers.h"
 
 @implementation ZENWindowController
 
@@ -20,6 +21,11 @@
 }
 
 #pragma mark - Open Quickly
+
+- (BOOL)isKindOfClass:(Class)aClass
+{
+    return [super isKindOfClass:aClass] || [aClass isSubclassOfClass:[IDEWorkspaceWindowController class]];
+}
 
 - (id)forwardingTargetForSelector:(SEL)aSelector
 {

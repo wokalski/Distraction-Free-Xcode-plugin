@@ -68,16 +68,25 @@ static Zen *sharedPlugin;
     // Sample Menu Item:
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"View"];
     if (menuItem) {
-        [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
         [[menuItem submenu] addItem:[self ZEN_menuItem]];
     }
 }
 
 - (NSMenuItem *)ZEN_menuItem
 {
-    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"GO ZEN" action:@selector(launch:) keyEquivalent:@""];
+    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:@selector(launch:) keyEquivalent:@"F"];
+    [actionMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask | NSShiftKeyMask];
     [actionMenuItem setTarget:self];
     return actionMenuItem;
+}
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{
+    IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
+    DVTFilePath *filePath = [[[[[[workspaceController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] document] filePath];
+    DVTFileDataType *dataType = [DVTFileDataType fileDataTypeForFilePath:filePath error:nil];
+    
+    return ZENFileDataTypeIsValid(dataType);
 }
 
 - (void)launch:(id)sender

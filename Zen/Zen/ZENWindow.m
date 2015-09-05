@@ -20,6 +20,14 @@
     becomeMainWindowFunc(self, @selector(becomeMainWindow));
 }
 
+- (void)close
+{
+    [super close];
+    
+    void (*closeFunc)(id s, SEL selector) = (void *)class_getMethodImplementation([IDEWorkspaceWindow class], @selector(close));
+    closeFunc(self, @selector(close));
+}
+
 - (BOOL)canBecomeMainWindow
 {
     return YES;

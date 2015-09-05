@@ -74,10 +74,19 @@ static Zen *sharedPlugin;
 
 - (NSMenuItem *)ZEN_menuItem
 {
-    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:@selector(launch:) keyEquivalent:@"F"];
+    NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:@selector(launch:) keyEquivalent:[self keyEquivalentForVersion:version]];
     [actionMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask | NSShiftKeyMask];
     [actionMenuItem setTarget:self];
     return actionMenuItem;
+}
+
+- (NSString *)keyEquivalentForVersion:(NSString *)version
+{
+    if ([version isEqualToString:@"6.4"]) {
+        return @"F";
+    }
+    return @"Z";
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem

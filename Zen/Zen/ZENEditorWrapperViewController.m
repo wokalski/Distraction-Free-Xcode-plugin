@@ -70,4 +70,6 @@
     return [self.dependencyMangager currentLaunchSession];
 }
 
+- (void)primitiveInvalidate {}
+
 @end

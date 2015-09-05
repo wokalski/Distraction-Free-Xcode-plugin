@@ -8,6 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 
+@interface DVTStackBacktrace : NSObject
+@end
+
+@protocol DVTInvalidation <NSObject>
+- (void)primitiveInvalidate;
+
+@optional
+@property(retain) DVTStackBacktrace *creationBacktrace;
+@property(readonly) DVTStackBacktrace *invalidationBacktrace;
+@property(readonly, nonatomic, getter=isValid) BOOL valid;
+- (void)invalidate;
+@end
+
+
 @interface DVTDocumentLocation : NSObject
 - (DVTDocumentLocation *)initWithDocumentURL:(NSURL *)documentURL timestamp:(NSNumber *)timestamp;
 - (NSURL *)documentURL;

@@ -139,4 +139,31 @@
     return self.editorContext;
 }
 
+- (BOOL)isKindOfClass:(Class)aClass
+{
+    return [super isKindOfClass:aClass] || [aClass isSubclassOfClass:[IDEWorkspaceTabController class]];
+}
+
+- (id)inspectorArea
+{
+    return nil;
+}
+
+- (id)libraryArea
+{
+    return nil;
+}
+
+#pragma mark - 
+
+- (NSArray *)workspaceTabControllers
+{
+    return @[self];
+}
+
+- (id)lastActiveEditorContext
+{
+    return self.editorContext;  
+}
+
 @end

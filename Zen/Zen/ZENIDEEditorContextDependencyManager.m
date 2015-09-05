@@ -9,6 +9,11 @@
 #import "ZENIDEEditorContextDependencyManager.h"
 #import "XcodeHeaders.h"
 
+BOOL ZENFileDataTypeIsValid(DVTFileDataType *fileType) {
+    NSString *sourceIdentifier = @"public.source-code";
+    DVTFileDataType *sourceDataType = [DVTFileDataType fileDataTypeWithIdentifier:sourceIdentifier];
+    return [fileType conformsToType:sourceDataType];
+}
 
 @implementation ZENIDEEditorContextDependencyManager
 
@@ -54,13 +59,7 @@
 
 - (BOOL)openSpecifierIsValid:(IDEEditorOpenSpecifier *)openSpecifier
 {
-    DVTFileDataType *fileType = [openSpecifier fileDataType];
-    
-    NSString *textIdentifier = @"public.text";
-    NSString *sourceIdentifier = @"public.source-code";
-    DVTFileDataType *sourceDataType = [DVTFileDataType fileDataTypeWithIdentifier:sourceIdentifier];
-
-    return [fileType conformsToType:sourceDataType];
+    return ZENFileDataTypeIsValid([openSpecifier fileDataType]);
 }
 
 // same story as -_openEditorOpenSpecifier:editorContext:takeFocus
@@ -163,7 +162,7 @@
 
 - (id)lastActiveEditorContext
 {
-    return self.editorContext;  
+    return self.editorContext;
 }
 
 @end

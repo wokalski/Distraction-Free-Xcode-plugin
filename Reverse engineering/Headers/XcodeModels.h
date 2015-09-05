@@ -60,6 +60,7 @@
 @interface DVTFileDataType : NSObject
 @property (readonly) NSString *displayName;
 + (id)fileDataTypeWithIdentifier:(id)arg1;
++ (id)fileDataTypeForFilePath:(id)arg1 error:(id *)arg2;
 - (BOOL)conformsToType:(DVTFileDataType *)type;
 @end
 
@@ -80,6 +81,7 @@
 @end
 
 @interface IDEEditorDocument : NSDocument
+@property DVTFilePath *filePath;
 @end
 
 @protocol IDEWorkspaceDocumentProvider <NSObject>

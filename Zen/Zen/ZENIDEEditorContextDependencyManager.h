@@ -17,6 +17,9 @@
 
 // The header file is limited to methods which have to be public.
 // See .m file for more insight how it works.
+
+extern BOOL ZENFileDataTypeIsValid(DVTFileDataType *fileDataType);
+
 @interface ZENIDEEditorContextDependencyManager : NSObject
 
 @property (nonatomic, strong, readonly) IDEWorkspaceDocument *workspaceDocument;

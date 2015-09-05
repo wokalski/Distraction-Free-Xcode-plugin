@@ -83,8 +83,10 @@ static Zen *sharedPlugin;
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
     IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
-    Class editorClass = [[[[[workspaceController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] class];
-    return [editorClass isSubclassOfClass:NSClassFromString(@"IDESourceCodeEditor")];
+    DVTFilePath *filePath = [[[[[[workspaceController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] document] filePath];
+    DVTFileDataType *dataType = [DVTFileDataType fileDataTypeForFilePath:filePath error:nil];
+    
+    return ZENFileDataTypeIsValid(dataType);
 }
 
 - (void)launch:(id)sender

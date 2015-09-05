@@ -33,6 +33,7 @@
 @interface IDEEditor : IDEViewController
 @property(retain, nonatomic) IDEFileTextSettings *fileTextSettings;
 @property(retain, nonatomic) IDEEditorContext *editorContext;
+@property IDEEditorDocument *document;
 @end
 
 @interface IDESourceCodeDocument : IDEEditorDocument

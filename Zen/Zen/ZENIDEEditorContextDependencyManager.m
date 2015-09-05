@@ -30,9 +30,37 @@
 
 - (void)_openEditorOpenSpecifier:(IDEEditorOpenSpecifier *)openSpecifier editorContext:(IDEEditorContext *)editorContext takeFocus:(BOOL)takeFocus
 {
+    if ([self openSpecifierIsValid:openSpecifier] == NO) {
+        [[self cannotOpenFileAlert:openSpecifier] runModal];
+        return;
+    }
+    
+    
     if ([editorContext openEditorOpenSpecifier:openSpecifier] && takeFocus) {
         [editorContext takeFocus];
     }
+}
+
+- (NSAlert *)cannotOpenFileAlert:(IDEEditorOpenSpecifier *)openSpecifier
+{
+    NSString *fileType = [[openSpecifier fileDataType] displayName];
+    NSString *localizedDescription = [NSString stringWithFormat:@"Cannot open %@.", fileType];
+    NSString *failureDescription = @"Files with this type are not supported by ZEN";
+    
+    return [NSAlert alertWithError:[NSError errorWithDomain:@"ZENErrorDomain" code:1 userInfo:@{
+                                                                                                NSLocalizedDescriptionKey : localizedDescription, NSLocalizedRecoverySuggestionErrorKey : failureDescription,
+                                                                                                NSLocalizedRecoveryOptionsErrorKey : @[@"OK"]}]];
+}
+
+- (BOOL)openSpecifierIsValid:(IDEEditorOpenSpecifier *)openSpecifier
+{
+    DVTFileDataType *fileType = [openSpecifier fileDataType];
+    
+    NSString *textIdentifier = @"public.text";
+    NSString *sourceIdentifier = @"public.source-code";
+    DVTFileDataType *sourceDataType = [DVTFileDataType fileDataTypeWithIdentifier:sourceIdentifier];
+
+    return [fileType conformsToType:sourceDataType];
 }
 
 // same story as -_openEditorOpenSpecifier:editorContext:takeFocus

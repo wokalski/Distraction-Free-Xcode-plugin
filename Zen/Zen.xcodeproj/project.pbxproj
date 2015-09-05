@@ -21,6 +21,7 @@
 		C97520BA1B38DB510005179E /* ZENEditorWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */; };
 		C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */; };
 		C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97520C21B3A2C470005179E /* IDEKit.framework */; };
+		C98D37BE1B9A086200DA2EBC /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D37BD1B9A086200DA2EBC /* DVTFoundation.framework */; };
 		C9A72DDA1B676A0500801B50 /* ZENBarsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DD91B676A0500801B50 /* ZENBarsController.m */; };
 		C9A72DDD1B676EF900801B50 /* ZENEventScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DDC1B676EF900801B50 /* ZENEventScheduler.m */; };
 		C9A72DE31B67943500801B50 /* ZENMouseInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DE21B67943500801B50 /* ZENMouseInteractionView.m */; };
@@ -59,6 +60,7 @@
 		C97520BB1B38DB640005179E /* ZENEditorWrapperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperView.h; sourceTree = "<group>"; };
 		C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperView.m; sourceTree = "<group>"; };
 		C97520C21B3A2C470005179E /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<group>"; };
+		C98D37BD1B9A086200DA2EBC /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
 		C9A72DD71B66479E00801B50 /* ZENInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENInterfaceController.h; sourceTree = "<group>"; };
 		C9A72DD81B676A0500801B50 /* ZENBarsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENBarsController.h; sourceTree = "<group>"; };
 		C9A72DD91B676A0500801B50 /* ZENBarsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENBarsController.m; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				C92A2C8C1B2F970900861B1E /* AppKit.framework in Frameworks */,
 				C92A2C8E1B2F970900861B1E /* Foundation.framework in Frameworks */,
 				C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */,
+				C98D37BE1B9A086200DA2EBC /* DVTFoundation.framework in Frameworks */,
 				C95728431B65288500183828 /* DVTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +110,7 @@
 		C92A2C8A1B2F970900861B1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C98D37BD1B9A086200DA2EBC /* DVTFoundation.framework */,
 				C95728421B65288500183828 /* DVTKit.framework */,
 				C97520C21B3A2C470005179E /* IDEKit.framework */,
 				C92A2C8B1B2F970900861B1E /* AppKit.framework */,

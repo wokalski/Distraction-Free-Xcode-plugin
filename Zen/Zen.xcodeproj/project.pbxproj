@@ -22,6 +22,7 @@
 		C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */ = {isa = PBXBuildFile; fileRef = C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */; };
 		C97520C31B3A2C470005179E /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97520C21B3A2C470005179E /* IDEKit.framework */; };
 		C98D37BE1B9A086200DA2EBC /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98D37BD1B9A086200DA2EBC /* DVTFoundation.framework */; };
+		C999C8CB1B9C8676004765EE /* IDEEditor+ZENTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C999C8CA1B9C8676004765EE /* IDEEditor+ZENTextView.m */; };
 		C9A72DDA1B676A0500801B50 /* ZENBarsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DD91B676A0500801B50 /* ZENBarsController.m */; };
 		C9A72DDD1B676EF900801B50 /* ZENEventScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DDC1B676EF900801B50 /* ZENEventScheduler.m */; };
 		C9A72DE31B67943500801B50 /* ZENMouseInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A72DE21B67943500801B50 /* ZENMouseInteractionView.m */; };
@@ -61,6 +62,8 @@
 		C97520BC1B38DB640005179E /* ZENEditorWrapperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperView.m; sourceTree = "<group>"; };
 		C97520C21B3A2C470005179E /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<group>"; };
 		C98D37BD1B9A086200DA2EBC /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
+		C999C8C91B9C8676004765EE /* IDEEditor+ZENTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IDEEditor+ZENTextView.h"; sourceTree = "<group>"; };
+		C999C8CA1B9C8676004765EE /* IDEEditor+ZENTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IDEEditor+ZENTextView.m"; sourceTree = "<group>"; };
 		C9A72DD71B66479E00801B50 /* ZENInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENInterfaceController.h; sourceTree = "<group>"; };
 		C9A72DD81B676A0500801B50 /* ZENBarsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENBarsController.h; sourceTree = "<group>"; };
 		C9A72DD91B676A0500801B50 /* ZENBarsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENBarsController.m; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 			children = (
 				C97520B81B38DB510005179E /* ZENEditorWrapperViewController.h */,
 				C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */,
+				C999C8C91B9C8676004765EE /* IDEEditor+ZENTextView.h */,
+				C999C8CA1B9C8676004765EE /* IDEEditor+ZENTextView.m */,
 				C91F5DE01B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.h */,
 				C91F5DE11B3E150300DF74E5 /* ZENIDEEditorContextDependencyManager.m */,
 				C97520BB1B38DB640005179E /* ZENEditorWrapperView.h */,
@@ -260,6 +265,7 @@
 				C928E9C91B34A2EE003CD7D8 /* ZENMinimalLayout.m in Sources */,
 				C97520BD1B38DB640005179E /* ZENEditorWrapperView.m in Sources */,
 				C928E9C61B33CC19003CD7D8 /* ZENWindowController.m in Sources */,
+				C999C8CB1B9C8676004765EE /* IDEEditor+ZENTextView.m in Sources */,
 				C9E10B9D1B3F4E37004A061B /* ZENWindow.m in Sources */,
 				C9A72DE31B67943500801B50 /* ZENMouseInteractionView.m in Sources */,
 				C928E9CC1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m in Sources */,

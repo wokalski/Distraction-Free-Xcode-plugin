@@ -10,6 +10,7 @@
 #import "XcodeViewControllers.h"
 #import "IDEEditorContext.h"
 #import "ZENContainerView.h"
+#import "IDEEditor+ZENTextView.h"
 @import ObjectiveC;
 
 @implementation IDEEditorContext (ZENNavBar)
@@ -19,6 +20,7 @@
 
 @interface ZENBarsController ()
 @property (nonatomic, strong) ZENContainerView *maskView;
+@property (nonatomic, assign) BOOL barsShouldBeHidden;
 @end
 
 @implementation ZENBarsController
@@ -34,6 +36,127 @@
     return self;
 }
 
+#pragma mark -
+
+- (void)layout
+{
+    if (self.barsShouldBeHidden) {
+        [self hideBarsWithAnimation:nil];
+    } else {
+        [self showBarsWithAnimation:nil];
+    }
+}
+
+- (void)hideBars
+{
+    [self hideBarsWithAnimation:[self hideBarsAnimation]];
+}
+
+- (void)showBars
+{
+    [self showBarsWithAnimation:[self showBarsAnimation]];
+}
+
+#pragma mark -
+
+- (void)hideBarsWithAnimation:(void (^) (NSView *navBar, NSView *sidebarMaskView))hideBarsAnimation
+{
+    self.barsShouldBeHidden = YES;
+    
+    DVTTextSidebarView *sidebarView = self.editorContext.sidebarView;
+    
+    if (sidebarView) {
+        [sidebarView addObserver:self forKeyPath:ZENFrameKeypath() options:0 context:NULL];
+        [sidebarView addObserver:self forKeyPath:ZENWindowKeypath() options:0 context:NULL];
+        
+        [self.maskView removeFromSuperview];
+        ZENContainerView *maskView = [self maskViewForSidebar:sidebarView];
+        maskView.frame = sidebarView.frame;
+        [sidebarView.superview addSubview:maskView];
+        self.maskView = maskView;
+    }
+    
+    [self adjustEditorToFrame:self.editorContext.view.frame];
+    
+    if (hideBarsAnimation) {
+        hideBarsAnimation(self.editorContext.navBar, self.maskView);
+    }
+    
+    self.editorContext.navBar.hidden = YES;
+
+}
+
+- (void (^)(NSView *, NSView *))hideBarsAnimation
+{
+    if (self.editorContext.navBar.window.screen == nil) {
+        return nil;
+    }
+    
+    return ^(NSView *navBar, NSView *maskView) {
+       
+        NSView *snapshotView = [self snapshotOfView:navBar];
+        [self.editorContext.navBar.superview addSubview:snapshotView];
+        
+        maskView.alphaValue = 0.f;
+        
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+            context.duration = .3;
+            snapshotView.animator.alphaValue = 0;
+            maskView.animator.alphaValue = 1;
+        } completionHandler:^{
+            [snapshotView removeFromSuperview];
+        }];
+    };
+}
+
+- (void (^)(NSView *, NSView *, void (^)()))showBarsAnimation
+{
+    return ^(NSView *navBar, NSView *maskView, void (^completionHandler)()) {
+        
+        NSView *snapshotView = [self snapshotOfView:navBar];
+        
+        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
+            context.duration = 0.3;
+            [maskView.animator removeFromSuperview];
+            [self.editorContext.view.superview.animator addSubview:snapshotView];
+            
+        } completionHandler:completionHandler];
+    };
+}
+
+- (void)showBarsWithAnimation:(void (^) (NSView *navBar, NSView *sidebarMaskView, void (^completion)(void)))hideBarsAnimation
+{
+    self.barsShouldBeHidden = NO;
+    
+    IDENavBar *navBar = self.editorContext.navBar;
+    
+    void (^completion)() = ^{
+        [self.maskView removeFromSuperview];
+        self.maskView = nil;
+        [self adjustEditorToFrame:[self editorFrameForShownBars]];
+        navBar.hidden = NO;
+    };
+    
+    if (navBar.hidden == YES) {
+        
+        if (hideBarsAnimation) {
+            hideBarsAnimation(navBar, self.maskView, completion);
+        } else {
+            completion();
+        }
+    }
+}
+
+- (CGRect)editorFrameForShownBars
+{
+    CGFloat navBarHeight = self.editorContext.navBar.frame.size.height;
+    CGRect editorBounds = self.editorContext.view.frame;
+    editorBounds.size.height -= navBarHeight;
+    return editorBounds;
+}
+
+#pragma mark -
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualTo:ZENWindowKeypath()]) {
@@ -47,68 +170,10 @@
     }
 }
 
-- (void)hideBars
-{
-    IDENavBar *navBar = self.editorContext.navBar;
-    NSView *snapshotView = [self snapshotOfView:navBar];
-    
-    [self.editorContext.navBar.superview addSubview:snapshotView];
-    
-    DVTTextSidebarView *sidebarView = self.editorContext.sidebarView;
-    
-    [sidebarView addObserver:self forKeyPath:ZENFrameKeypath() options:0 context:NULL];
-    [sidebarView addObserver:self forKeyPath:ZENWindowKeypath() options:0 context:NULL];
-    
-    ZENContainerView *maskView = [self maskViewForSidebar:sidebarView];
-    maskView.alphaValue = 0.f;
-    maskView.frame = sidebarView.frame;
-    [sidebarView.superview addSubview:maskView];
-    self.maskView = maskView;
-    
-    [self adjustEditorToFrame:self.editorContext.view.frame];
-    
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-        context.duration = .3;
-        snapshotView.animator.alphaValue = 0;
-        maskView.animator.alphaValue = 1;
-    } completionHandler:^{
-        self.editorContext.navBar.hidden = YES;
-        [snapshotView removeFromSuperview];
-    }];
-}
-
-- (void)showBars
-{
-    IDENavBar *navBar = self.editorContext.navBar;
-    NSView *snapshotView;
-
-    
-    if (navBar.hidden == YES) {
-        snapshotView = [self snapshotOfView:navBar];
-    
-    [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-            context.duration = 0.3;
-            [self.maskView.animator removeFromSuperview];
-            self.maskView = nil;
-            [self.editorContext.view.superview.animator addSubview:snapshotView];
-        
-        } completionHandler:^{
-            CGFloat navBarHeight = self.editorContext.navBar.frame.size.height;
-            CGRect editorBounds = self.editorContext.view.frame;
-            editorBounds.size.height -= navBarHeight;
-            
-            [self adjustEditorToFrame:editorBounds];
-            navBar.hidden = NO;
-            [snapshotView removeFromSuperview];
-        
-        }];
-    }
-}
-
 - (void)adjustEditorToFrame:(CGRect)frame
 {
     NSView *editorView = self.editorContext.editor.view;
-    NSTextView *textView = [self textViewInEditor:self.editorContext.editor];
+    NSTextView *textView = [self.editorContext.editor zen_textView];
     
     CGFloat verticalScrollPositionDelta = -(CGRectGetHeight(frame) - CGRectGetHeight(editorView.frame));
     
@@ -120,6 +185,10 @@
 
 - (NSView *)snapshotOfView:(NSView *)view
 {
+    if (view.hidden == YES || view.alphaValue == 0) {
+        return nil;
+    }
+    
     NSImage *image = [[NSImage alloc] initWithData:[view dataWithPDFInsideRect:view.bounds]];
     NSImageView *imageView = [[NSImageView alloc] initWithFrame:view.frame];
     imageView.image = image;
@@ -138,16 +207,12 @@
     [scrollView reflectScrolledClipView:clipView];
 }
 
-- (NSTextView *)textViewInEditor:(IDEEditor *)editor
-{
-    if ([editor isKindOfClass:NSClassFromString(@"IDESourceCodeEditor")]) {
-        return [(IDESourceCodeEditor *)editor textView];
-    }
-    return nil;
-}
-
 - (ZENContainerView *)maskViewForSidebar:(DVTTextSidebarView *)sidebarView
 {
+    if (sidebarView == nil) {
+        return nil;
+    }
+    
     ZENContainerView *containerView = [[ZENContainerView alloc] initWithFrame:sidebarView.frame];
     containerView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     containerView.backgroundColor = self.backgroundColor;
@@ -178,8 +243,15 @@
 + (IMP)sidebarGetterIMP
 {
     return imp_implementationWithBlock(^DVTTextSidebarView *(IDEEditorContext *self) {
-        return [[self editor] valueForKey:@"_sidebarView"]; // It assumes that the current editor is a code editor.
+        if (ZENIsValidEditor(self.editor)) {
+            return [[self editor] valueForKey:@"_sidebarView"];
+        }
+        return nil;
     });
+}
+
+BOOL ZENIsValidEditor(IDEEditor *editor) {
+    return [editor isKindOfClass:NSClassFromString(@"IDESourceCodeEditor")];
 }
 
 #pragma mark - KVO

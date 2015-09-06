@@ -25,6 +25,6 @@
 
 - (void)showBars;
 - (void)hideBars;
-- (NSTextView *)textViewInEditor:(IDEEditor *)editor;
+- (void)layout;
 
 @end

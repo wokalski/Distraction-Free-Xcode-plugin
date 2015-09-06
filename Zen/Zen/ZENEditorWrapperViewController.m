@@ -9,23 +9,35 @@
 #import "ZENEditorWrapperViewController.h"
 #import "ZENEditorWrapperView.h"
 #import "XcodeViewControllers.h"
+#import "IDEEditor+ZENTextView.h"
 
 @implementation ZENEditorWrapperViewController
 
-- (instancetype)initWithEditorContext:(IDEEditorContext *)editorContext editorDependencyManager:(ZENIDEEditorContextDependencyManager *)dependencyManager;
+- (instancetype)initWithEditorContext:(IDEEditorContext *)editorContext editorDependencyManager:(ZENIDEEditorContextDependencyManager *)dependencyManager barsController:(ZENBarsController *)barsController;
 {
     self = [super init];
     
     if (self) {
         _editorContext = editorContext;
         _dependencyMangager = dependencyManager;
+        _barsController = barsController;
     }
     return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualTo:@"frame"] && object == self.view) {
+        self.editorContext.view.frame = self.view.bounds;
+        [self.barsController layout];
+    }
 }
 
 - (void)loadView
 {
     self.view = [[ZENEditorWrapperView alloc] initWithViewController:self];
+    
+    [self.view addObserver:self forKeyPath:@"frame" options:0 context:NULL];
 }
 
 - (void)viewDidLoad
@@ -37,6 +49,19 @@
     
     self.editorContext.view.frame = self.view.bounds;
     self.editorContext.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.barsController hideBars];
+}
+
+- (void)viewWillAppear
+{
+    [super viewWillAppear];
+    [[[self.barsController.editorContext.editor zen_textView] enclosingScrollView] setScrollerStyle:NSScrollerStyleOverlay];
+}
+
+- (void)viewWillDisappear
+{
+    [super viewWillDisappear];
+    [self.view removeObserver:self forKeyPath:@"frame"];
 }
 
 #pragma mark - Xcode hacking

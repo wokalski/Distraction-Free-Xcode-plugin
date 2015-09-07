@@ -24,7 +24,7 @@ static Zen *sharedPlugin;
 @interface Zen() <NSWindowDelegate>
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
-@property (nonatomic, strong) NSWindowController *windowController;
+@property (nonatomic, strong) NSMutableArray *windowControllers;
 
 @end
 
@@ -55,6 +55,7 @@ static Zen *sharedPlugin;
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:nil];
     }
     return self;
 }
@@ -93,6 +94,11 @@ static Zen *sharedPlugin;
 {
     IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
     DVTFilePath *filePath = [[[[[[workspaceController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] document] filePath];
+    
+    if (filePath == nil) {
+        return NO;
+    }
+    
     DVTFileDataType *dataType = [DVTFileDataType fileDataTypeForFilePath:filePath error:nil];
     
     return ZENFileDataTypeIsValid(dataType);
@@ -100,13 +106,24 @@ static Zen *sharedPlugin;
 
 - (void)launch:(id)sender
 {
-    self.windowController = [self makeWindowController];
+    NSWindowController *windowController = [self makeWindowController];
     
-    [self.windowController showWindow:self];
-    [self.windowController.window setFrame:[[NSScreen mainScreen] frame] display:YES];
-    [self.windowController.window toggleFullScreen:self];
+    [windowController showWindow:self];
+    [windowController.window setFrame:[[NSScreen mainScreen] frame] display:YES];
+    [windowController.window toggleFullScreen:self];
 
+    [self.windowControllers addObject:windowController];
 }
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+    for (NSWindowController *controller in self.windowControllers) {
+        if (controller.window == notification.object) {
+            [self.windowControllers removeObject:controller];
+        }
+    }
+}
+
 - (NSWindowController *)makeWindowController
 {
     IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];

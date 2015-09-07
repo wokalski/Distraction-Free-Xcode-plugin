@@ -10,6 +10,16 @@
 #import "ZENEditorWrapperView.h"
 #import "XcodeViewControllers.h"
 #import "IDEEditor+ZENTextView.h"
+#import "ZENContainerView.h"
+
+@interface ZENEditorWrapperViewController ()
+
+@property (nonatomic, strong) NSLayoutConstraint *xPositionConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *yPositionConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *heightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *widthConstraint;
+
+@end
 
 @implementation ZENEditorWrapperViewController
 
@@ -28,7 +38,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualTo:@"frame"] && object == self.view) {
-        self.editorContext.view.frame = self.view.bounds;
         [self.barsController layout];
     }
 }
@@ -38,23 +47,26 @@
     self.view = [[ZENEditorWrapperView alloc] initWithViewController:self];
     
     [self.view addObserver:self forKeyPath:@"frame" options:0 context:NULL];
+    [self addChildViewController:self.editorContext];
+
+    [self.view addSubview:self.editorContext.view];
+    
+    self.editorContext.view.frame = self.view.bounds;
+    self.view.autoresizesSubviews = YES;
+    self.editorContext.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self addChildViewController:self.editorContext];
-    [self.view addSubview:self.editorContext.view];
-    
-    self.editorContext.view.frame = self.view.bounds;
-    self.editorContext.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     [self.barsController hideBars];
 }
 
 - (void)viewWillAppear
 {
     [super viewWillAppear];
+    [self.view addObserver:self forKeyPath:@"frame" options:0 context:NULL];
     [[[self.barsController.editorContext.editor zen_textView] enclosingScrollView] setScrollerStyle:NSScrollerStyleOverlay];
 }
 

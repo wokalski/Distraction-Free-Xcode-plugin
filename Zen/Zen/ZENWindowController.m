@@ -16,9 +16,35 @@
     self = [super initWithWindow:window];
     if (self) {
         _dependencyManager = dependencyManager;
+        window.delegate = self;
     }
     return self;
 }
+
+#pragma mark - Full screen animation
+
+- (NSSize)window:(NSWindow *)window willUseFullScreenContentSize:(NSSize)proposedSize
+{
+    return proposedSize;
+}
+
+- (void)window:(NSWindow *)window startCustomAnimationToEnterFullScreenOnScreen:(NSScreen *)screen withDuration:(NSTimeInterval)duration
+{
+    [window setFrame:[screen frame] display:YES];
+}
+
+- (NSArray *)customWindowsToEnterFullScreenForWindow:(NSWindow *)window
+{
+    return @[window];
+}
+
+- (NSApplicationPresentationOptions)window:(NSWindow *)window willUseFullScreenPresentationOptions:(NSApplicationPresentationOptions)proposedOptions
+{
+    return (NSApplicationPresentationFullScreen |
+            NSApplicationPresentationHideDock |
+            NSApplicationPresentationAutoHideMenuBar);
+}
+
 
 #pragma mark - Open Quickly
 

@@ -21,7 +21,7 @@
 
 static Zen *sharedPlugin;
 
-@interface Zen()
+@interface Zen() <NSWindowDelegate>
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 @property (nonatomic, strong) NSWindowController *windowController;
@@ -102,13 +102,11 @@ static Zen *sharedPlugin;
 {
     self.windowController = [self makeWindowController];
     
-    NSRect rect = [[NSScreen mainScreen] frame];
-    
-    [self.windowController.window setFrame:rect display:YES];
-    [self.windowController.window toggleFullScreen:nil];
     [self.windowController showWindow:self];
-}
+    [self.windowController.window setFrame:[[NSScreen mainScreen] frame] display:YES];
+    [self.windowController.window toggleFullScreen:self];
 
+}
 - (NSWindowController *)makeWindowController
 {
     IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
@@ -130,11 +128,10 @@ static Zen *sharedPlugin;
     ZENWindow *window = [[ZENWindow alloc] initWithContentRect:zenController.view.frame styleMask:NSFullSizeContentViewWindowMask | NSClosableWindowMask backing:NSBackingStoreRetained defer:NO];
     window.releasedWhenClosed = YES;
     window.contentViewController = zenController;
-    [zenController.view layoutSubtreeIfNeeded];
     
     NSWindowController *windowController = [[ZENWindowController alloc] initWithWindow:window dependencyManager:dependencyManager];
     
-    windowController.window.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
+    windowController.window.collectionBehavior = window.collectionBehavior | NSWindowCollectionBehaviorFullScreenPrimary;
     
     // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
     [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];

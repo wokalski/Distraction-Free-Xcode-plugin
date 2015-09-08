@@ -51,6 +51,7 @@ static Zen *sharedPlugin;
     if (self = [super init]) {
         // reference to plugin's bundle, for resource access
         self.bundle = plugin;
+        self.windowControllers = [NSMutableArray new];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification

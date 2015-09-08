@@ -46,11 +46,6 @@
 		C92A2C921B2F970900861B1E /* Zen.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Zen.xcscheme; path = Zen.xcodeproj/xcshareddata/xcschemes/Zen.xcscheme; sourceTree = SOURCE_ROOT; };
 		C92A2C941B2F970900861B1E /* Zen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zen.h; sourceTree = "<group>"; };
 		C92A2C951B2F970900861B1E /* Zen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zen.m; sourceTree = "<group>"; };
-		C92A2CB01B2FA55100861B1E /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorContext.h; path = "../../Reverse engineering/Headers/IDEEditorContext.h"; sourceTree = "<group>"; };
-		C92A2CB11B2FA55100861B1E /* XcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeHeaders.h; path = "../../Reverse engineering/Headers/XcodeHeaders.h"; sourceTree = "<group>"; };
-		C92A2CB21B2FA55100861B1E /* XcodeModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeModels.h; path = "../../Reverse engineering/Headers/XcodeModels.h"; sourceTree = "<group>"; };
-		C92A2CB31B2FA55100861B1E /* XcodeViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeViewControllers.h; path = "../../Reverse engineering/Headers/XcodeViewControllers.h"; sourceTree = "<group>"; };
-		C92A2CB41B2FA55100861B1E /* XcodeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeViews.h; path = "../../Reverse engineering/Headers/XcodeViews.h"; sourceTree = "<group>"; };
 		C92A2CB81B2FAE3D00861B1E /* ZENViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENViewController.h; sourceTree = "<group>"; };
 		C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENViewController.m; sourceTree = "<group>"; };
 		C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENContainerView.h; sourceTree = "<group>"; };
@@ -163,11 +158,6 @@
 		C92A2CA41B2F986100861B1E /* Xcode headers */ = {
 			isa = PBXGroup;
 			children = (
-				C92A2CB01B2FA55100861B1E /* IDEEditorContext.h */,
-				C92A2CB11B2FA55100861B1E /* XcodeHeaders.h */,
-				C92A2CB21B2FA55100861B1E /* XcodeModels.h */,
-				C92A2CB31B2FA55100861B1E /* XcodeViewControllers.h */,
-				C92A2CB41B2FA55100861B1E /* XcodeViews.h */,
 			);
 			name = "Xcode headers";
 			sourceTree = "<group>";

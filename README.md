@@ -1,8 +1,6 @@
-#ZEN
+##ZEN - Distraction free mode in Xcode
 
-##Distraction free mode in Xcode
-
-Sometimes Xcode UI is too overwhelming. Distraction free mode, whenever you just want to write code.
+Sometimes Xcode UI is too overwhelming. Enter distraction free mode, whenever you want to focus code. It was inspired by Sublime Text.
 Works just like Xcode editor with autocompletion, cmd+click navigation, Open Quickly (cmd+shift+O) etc. 
 
 ![](ZEN.png)

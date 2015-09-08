@@ -50,6 +50,11 @@
 		C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENViewController.m; sourceTree = "<group>"; };
 		C92A2CBD1B2FAFC600861B1E /* ZENContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENContainerView.h; sourceTree = "<group>"; };
 		C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENContainerView.m; sourceTree = "<group>"; };
+		C9537CD01B9F86C60059B405 /* IDEEditorContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDEEditorContext.h; path = "Reverse engineering/Headers/IDEEditorContext.h"; sourceTree = SOURCE_ROOT; };
+		C9537CD11B9F86C60059B405 /* XcodeHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeHeaders.h; path = "Reverse engineering/Headers/XcodeHeaders.h"; sourceTree = SOURCE_ROOT; };
+		C9537CD21B9F86C60059B405 /* XcodeModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeModels.h; path = "Reverse engineering/Headers/XcodeModels.h"; sourceTree = SOURCE_ROOT; };
+		C9537CD31B9F86C60059B405 /* XcodeViewControllers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeViewControllers.h; path = "Reverse engineering/Headers/XcodeViewControllers.h"; sourceTree = SOURCE_ROOT; };
+		C9537CD41B9F86C60059B405 /* XcodeViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XcodeViews.h; path = "Reverse engineering/Headers/XcodeViews.h"; sourceTree = SOURCE_ROOT; };
 		C95728421B65288500183828 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework; sourceTree = "<group>"; };
 		C97520B81B38DB510005179E /* ZENEditorWrapperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZENEditorWrapperViewController.h; sourceTree = "<group>"; };
 		C97520B91B38DB510005179E /* ZENEditorWrapperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZENEditorWrapperViewController.m; sourceTree = "<group>"; };
@@ -158,6 +163,11 @@
 		C92A2CA41B2F986100861B1E /* Xcode headers */ = {
 			isa = PBXGroup;
 			children = (
+				C9537CD01B9F86C60059B405 /* IDEEditorContext.h */,
+				C9537CD11B9F86C60059B405 /* XcodeHeaders.h */,
+				C9537CD21B9F86C60059B405 /* XcodeModels.h */,
+				C9537CD31B9F86C60059B405 /* XcodeViewControllers.h */,
+				C9537CD41B9F86C60059B405 /* XcodeViews.h */,
 			);
 			name = "Xcode headers";
 			sourceTree = "<group>";

@@ -23,11 +23,22 @@
 
 - (void)mouseMoved:(NSEvent *)event
 {
-    NSView *editorContextView = self.barsController.editorContext.view;
-    CGRect frameInWindow = [self.barsController.editorContext.view convertRect:editorContextView.bounds toView:nil];
+    IDEEditorContext *editorContext = self.barsController.editorContext;
+    CGPoint location = event.locationInWindow;
     
-    if (CGRectContainsPoint(frameInWindow, event.locationInWindow) == NO) {
+    NSView *editorContextView = editorContext.view;
+    CGRect frameInWindow = [editorContext.view convertRect:editorContextView.bounds toView:nil];
+    
+    NSView *sidebarView = editorContext.sidebarView;
+    CGRect sideBarViewFrame = [sidebarView.superview convertRect:sidebarView.frame toView:nil];
+    
+    if (CGRectContainsPoint(sideBarViewFrame, location)) {
+        [self.eventScheduler cancel];
         [self.barsController showBars];
+    } else if (CGRectContainsPoint(frameInWindow, location) == NO) {
+        [self.barsController showBars];
+        [self.eventScheduler scheduleAfter:1.5f];
+    } else {
         [self.eventScheduler scheduleAfter:1.5f];
     }
 }

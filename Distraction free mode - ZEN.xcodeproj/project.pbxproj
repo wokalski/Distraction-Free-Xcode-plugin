@@ -13,7 +13,6 @@
 		C928E9CC1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = C928E9CB1B34A612003CD7D8 /* ZENIDEEditorContextConfiguration.m */; };
 		C92A2C8C1B2F970900861B1E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A2C8B1B2F970900861B1E /* AppKit.framework */; };
 		C92A2C8E1B2F970900861B1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92A2C8D1B2F970900861B1E /* Foundation.framework */; };
-		C92A2C931B2F970900861B1E /* Zen.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = C92A2C921B2F970900861B1E /* Zen.xcscheme */; };
 		C92A2C961B2F970900861B1E /* Zen.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2C951B2F970900861B1E /* Zen.m */; };
 		C92A2CBB1B2FAE3D00861B1E /* ZENViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2CB91B2FAE3D00861B1E /* ZENViewController.m */; };
 		C92A2CBF1B2FAFC600861B1E /* ZENContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C92A2CBE1B2FAFC600861B1E /* ZENContainerView.m */; };
@@ -225,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C92A2C831B2F970900861B1E /* Build configuration list for PBXProject "Zen" */;
+			buildConfigurationList = C92A2C831B2F970900861B1E /* Build configuration list for PBXProject "Distraction free mode - ZEN" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -247,7 +246,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92A2C931B2F970900861B1E /* Zen.xcscheme in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +389,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C92A2C831B2F970900861B1E /* Build configuration list for PBXProject "Zen" */ = {
+		C92A2C831B2F970900861B1E /* Build configuration list for PBXProject "Distraction free mode - ZEN" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C92A2C9A1B2F970900861B1E /* Debug */,

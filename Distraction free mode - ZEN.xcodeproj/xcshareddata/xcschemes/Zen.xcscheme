@@ -17,21 +17,7 @@
                BlueprintIdentifier = "C92A2C871B2F970900861B1E"
                BuildableName = "Zen.xcplugin"
                BlueprintName = "Zen"
-               ReferencedContainer = "container:Zen.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8966AFCA173EB7BF004150C0"
-               BuildableName = "ZenTests.xctest"
-               BlueprintName = "ZenTests"
-               ReferencedContainer = "container:Zen.xcodeproj">
+               ReferencedContainer = "container:Distraction free mode - ZEN.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C92A2C871B2F970900861B1E"
+            BuildableName = "Zen.xcplugin"
+            BlueprintName = "Zen"
+            ReferencedContainer = "container:Distraction free mode - ZEN.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -57,6 +52,7 @@
       viewDebuggingEnabled = "No">
       <PathRunnable
          runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.dt.Xcode"
          FilePath = "/Applications/Xcode.app">
       </PathRunnable>
       <MacroExpansion>
@@ -65,7 +61,7 @@
             BlueprintIdentifier = "C92A2C871B2F970900861B1E"
             BuildableName = "Zen.xcplugin"
             BlueprintName = "Zen"
-            ReferencedContainer = "container:Zen.xcodeproj">
+            ReferencedContainer = "container:Distraction free mode - ZEN.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -77,6 +73,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C92A2C871B2F970900861B1E"
+            BuildableName = "Zen.xcplugin"
+            BlueprintName = "Zen"
+            ReferencedContainer = "container:Distraction free mode - ZEN.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

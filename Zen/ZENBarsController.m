@@ -65,7 +65,9 @@
     
     DVTTextSidebarView *sidebarView = self.editorContext.sidebarView;
     
-    if (sidebarView) {
+    NSView *maskToAnimate = nil;
+    
+    if (sidebarView && [self shouldHideSideBar:sidebarView withMask:self.maskView]) {
         [sidebarView addObserver:self forKeyPath:ZENFrameKeypath() options:0 context:NULL];
         [sidebarView addObserver:self forKeyPath:ZENWindowKeypath() options:0 context:NULL];
         
@@ -74,16 +76,23 @@
         maskView.frame = sidebarView.frame;
         [sidebarView.superview addSubview:maskView];
         self.maskView = maskView;
+        
+        maskToAnimate = self.maskView;
     }
     
     [self adjustEditorToFrame:self.editorContext.view.frame];
     
     if (hideBarsAnimation) {
-        hideBarsAnimation(self.editorContext.navBar, self.maskView);
+        hideBarsAnimation(self.editorContext.navBar, maskToAnimate);
     }
     
     self.editorContext.navBar.hidden = YES;
 
+}
+
+- (BOOL)shouldHideSideBar:(NSView *)sidebar withMask:(NSView *)mask
+{
+    return mask == nil || sidebar.superview != mask.superview || CGRectEqualToRect(mask.frame, sidebar.frame) == NO || mask.alphaValue != 1;
 }
 
 - (void (^)(NSView *, NSView *))hideBarsAnimation
@@ -164,6 +173,7 @@
         if (view.window == nil) {
             [view removeObserver:self forKeyPath:ZENWindowKeypath()];
             [view removeObserver:self forKeyPath:ZENFrameKeypath()];
+            self.maskView = nil;
         }
     } else {
         self.maskView.frame = self.editorContext.sidebarView.frame ;

@@ -77,7 +77,7 @@ static Zen *sharedPlugin;
 - (NSMenuItem *)ZEN_menuItem
 {
     NSString *version = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
-    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:@selector(launch:) keyEquivalent:[self keyEquivalentForVersion:version]];
+    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Distraction Free Mode" action:@selector(toggleDistractionFreeMode:) keyEquivalent:[self keyEquivalentForVersion:version]];
     [actionMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSControlKeyMask | NSShiftKeyMask];
     [actionMenuItem setTarget:self];
     return actionMenuItem;
@@ -93,8 +93,10 @@ static Zen *sharedPlugin;
 
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
-    IDEWorkspaceWindowController *workspaceController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
-    DVTFilePath *filePath = [[[[[[workspaceController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] document] filePath];
+    IDEWorkspaceWindowController *windowController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
+    
+    menuItem.title = [self menuItemTitleForWindowController:windowController];
+    DVTFilePath *filePath = [self documentFilePathInWindowController:windowController];
     
     if (filePath == nil) {
         return NO;
@@ -105,15 +107,41 @@ static Zen *sharedPlugin;
     return ZENFileDataTypeIsValid(dataType);
 }
 
-- (void)launch:(id)sender
+- (NSString *)menuItemTitleForWindowController:(NSWindowController *)windowController
 {
-    NSWindowController *windowController = [self makeWindowController];
-    
-    [windowController showWindow:self];
-    [windowController.window setFrame:[[NSScreen mainScreen] frame] display:YES];
-    [windowController.window toggleFullScreen:self];
+    if ([self windowControllerIsZENController:windowController]) {
+        return @"Close Distradction Free Mode";
+    } else {
+        return @"Distradction Free Mode";
+    }
+}
 
-    [self.windowControllers addObject:windowController];
+- (BOOL)windowControllerIsZENController:(NSWindowController *)controller
+{
+    return [controller isKindOfClass:[ZENWindowController class]];
+}
+
+- (DVTFilePath *)documentFilePathInWindowController:(IDEWorkspaceWindowController *)windowController
+{
+    return [[[[[[windowController activeWorkspaceTabController] editorArea] lastActiveEditorContext] editor] document] filePath];
+}
+
+- (void)toggleDistractionFreeMode:(id)sender
+{
+    NSWindowController *activeWindowController = [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
+    
+    if ([self windowControllerIsZENController:activeWindowController]) {
+        [activeWindowController close];
+        [self.windowControllers removeObject:activeWindowController];
+    } else {
+        NSWindowController *windowController = [self makeWindowController];
+        
+        [windowController showWindow:self];
+        [windowController.window setFrame:[[NSScreen mainScreen] frame] display:YES];
+        [windowController.window toggleFullScreen:self];
+        
+        [self.windowControllers addObject:windowController];
+    }
 }
 
 - (void)windowWillClose:(NSNotification *)notification

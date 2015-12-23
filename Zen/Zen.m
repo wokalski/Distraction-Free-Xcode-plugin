@@ -110,9 +110,9 @@ static Zen *sharedPlugin;
 - (NSString *)menuItemTitleForWindowController:(NSWindowController *)windowController
 {
     if ([self windowControllerIsZENController:windowController]) {
-        return @"Close Distradction Free Mode";
+        return @"Close Distraction Free Mode";
     } else {
-        return @"Distradction Free Mode";
+        return @"Distraction Free Mode";
     }
 }
 

@@ -35,18 +35,10 @@
     return self;
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualTo:@"frame"] && object == self.view) {
-        [self.barsController layout];
-    }
-}
-
 - (void)loadView
 {
     self.view = [[ZENEditorWrapperView alloc] initWithViewController:self];
     
-    [self.view addObserver:self forKeyPath:@"frame" options:0 context:NULL];
     [self addChildViewController:self.editorContext];
 
     [self.view addSubview:self.editorContext.view];
@@ -66,14 +58,11 @@
 - (void)viewWillAppear
 {
     [super viewWillAppear];
-    [self.view addObserver:self forKeyPath:@"frame" options:0 context:NULL];
     [[[self.barsController.editorContext.editor zen_textView] enclosingScrollView] setScrollerStyle:NSScrollerStyleOverlay];
 }
 
-- (void)viewWillDisappear
-{
-    [super viewWillDisappear];
-    [self.view removeObserver:self forKeyPath:@"frame"];
+- (void)viewWillLayout {
+    [self.barsController layout];
 }
 
 #pragma mark - Xcode hacking

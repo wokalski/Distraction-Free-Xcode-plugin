@@ -60,32 +60,9 @@
 
 #pragma mark - Layout
 
-- (void)setWindow:(NSWindow *)window
+- (void)windowDidResize:(NSNotification *)notification
 {
-    if (self.window == nil && window != nil) {
-        [window addObserver:self forKeyPath:ZENContentLayoutRectPropertyString() options:0 context:NULL];
-    } else {
-        [self.window removeObserver:self forKeyPath:ZENContentLayoutRectPropertyString()];
-    }
-    [super setWindow:window]; 
-}
-
-- (void)dealloc
-{
-    [self.window removeObserver:self forKeyPath:ZENContentLayoutRectPropertyString()];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:ZENContentLayoutRectPropertyString()]) {
-        [self.window.contentView setNeedsLayout:YES];
-    }
-}
-
-#pragma mark -
-
-static NSString * ZENContentLayoutRectPropertyString(void) {
-    return NSStringFromSelector(@selector(contentLayoutRect));
+    [self.window.contentView setNeedsLayout:YES];
 }
 
 @end

@@ -136,6 +136,10 @@ static Zen *sharedPlugin;
     } else {
         NSWindowController *windowController = [self makeWindowController];
         
+        if (!windowController) {
+            return;
+        }
+        
         [windowController showWindow:self];
         [windowController.window setFrame:[[NSScreen mainScreen] frame] display:YES];
         [windowController.window toggleFullScreen:self];
@@ -180,7 +184,10 @@ static Zen *sharedPlugin;
     windowController.window.collectionBehavior = window.collectionBehavior | NSWindowCollectionBehaviorFullScreenPrimary;
     
     // ORDER IMPORTANT HERE! This method should be called when an IDEEditorContext is in a window. All dependencies are resolved then #XcodeArchitecture
-    [editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier];
+    editorContext.workspaceTabController = editorConfiguration.tabController;
+    if (![editorContext openEditorOpenSpecifier:editorConfiguration.openSpecifier]) {
+        NSLog(@"WCDistractionFreePlugin: Unable to open editor:\n%@", editorConfiguration.openSpecifier);
+    }
     
     return windowController;
 }
